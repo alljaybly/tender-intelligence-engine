@@ -1,0 +1,725 @@
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 1
+TENDER COMPLETION GUIDE
+Practical instruction manual for a first-time contractor preparing the final tender submission.
+Use this guide to finish the work that still remains before submission. It does not repeat the roadmap, audit,
+readiness report, or submission letter.
+Guide Item
+Value
+Document
+REQ00529 ELECTRICAL SERVICES.pdf
+Jurisdiction
+International / General
+Purpose
+Completion actions, missing items, document pack checks, and submission readiness
+Version
+4.0.0
+Generated
+2026-07-16 23:55
+ PARTIALLY READY
+ You have enough to move forward, but some important gaps still need attention before submission.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 2
+ EXECUTIVE SUMMARY
+ 
+Tender Number
+✗ Missing
+Project
+✗ Missing
+Employer
+✓ Verified
+Currency
+✓ ZAR
+Closing Date
+✗ Missing
+BOQ
+✓ Verified
+Pricing
+✓ Verified
+Supporting Documents
+■ Manual Verification Required
+Estimated Remaining
+Work
+0–1 Hours
+Submission Recommendation
+ REVIEW BEFORE SUBMISSION
+ Overall Extraction Status: MEDIUM
+ 
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 3
+1. Document Navigation by Section
+Detected document sections are listed below so reviewers can navigate the tender structure quickly.
+Section
+Heading
+Page
+Confidence
+Forms
+RETURNABLE DOCUMENTS
+1
+High
+Submission Requirem
+ents
+RETURNABLE DOCUMENTS
+1
+High
+Evaluation Criteria
+TECHNICAL EVALUATION CRITERIA
+1
+High
+Specifications
+TERMS OF REFERENCE
+3
+High
+Specifications
+SCOPE OF WORK
+3
+High
+Submission Requirem
+ents
+PROPOSAL REQUIREMENTS
+3
+High
+Award Criteria
+Preference Point System
+16
+High
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 4
+1. Completion Status
+ PARTIALLY READY
+ You have enough to move forward, but some important gaps still need attention before submission.
+Next best action: Complete the missing information and document checklist before final pricing sign-off.
+ Submission Readiness
+ ■■■■■■■■■■
+ 66.7%
+ 
+Indicator
+Current Position
+Information readiness
+Partial
+Pricing available
+Yes
+BOQ available
+Yes
+Final pack stage
+Still in completion phase
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 5
+2. Verified Extracted Information
+Each extracted value below includes where it was found, how confident the extraction is, and whether it should be
+verified before submission.
+Field
+Extracted Value
+Verified From
+Tender Number
+SAHPRA2026/ PROVISION OF AN ELE
+Verified From: Document header Page: Unknown Confidence:
+High Evidence: SAHPRA2026/ PROVISION OF AN ELE
+Employer / Procuring
+Entity
+SUPPLIER INFORMATION NAME OF
+BIDDER
+Verified From: Document body Page: Unknown Confidence:
+High Evidence: SUPPLIER INFORMATION NAME OF
+BIDDER
+Project Title
+REQ00529 ELECTRICAL SERVICES
+Verified From: Document title Page: Unknown Confidence:
+Missing
+Sector
+electrical
+Verified From: Document body Page: 1 Confidence: High
+Evidence: Ref no: SAHPRA2026/ PROVISION OF AN
+ELECTRICAL CONTRACTOR FOR (AS
+Currency
+ZAR
+Verified From: Pricing / contract value context Page: 1
+Confidence: High Evidence: ...the 80/20 system for
+requirements with a Rand value of up to R50 000 000 (all
+applicable taxes included); and - the 90/10 sys...
+Contract Duration
+21 April 2026
+Verified From: Document body Page: Unknown Confidence:
+High Evidence: BID NUMBER: OFFICES /REQ00529
+CLOSING DATE: 21 April 2026 TIME: 16:00
+Location(s)
+western_cape, national
+Verified From: Document body Page: Unknown Confidence:
+Medium Evidence: Detected locations: western_cape, national
+BOQ Items
+item_count: 28; section_count: 2;
+subsection_count: 0; hierarchy_levels:
+1; ...
+Verified From: BOQ tables Page: Unknown Confidence: High
+Evidence: 14 BOQ items extracted
+Pricing Calculation
+Calculated
+Verified From: BOQ summary Page: Unknown Confidence:
+Missing
+Workforce Requirements
+Civil, Electrical
+Verified From: BOQ / scope of work Page: Unknown
+Confidence: High Evidence: Work categories inferred from
+trade summary: Civil, Electrical
+Buyer
+that the claims are correct
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: proof to the satisfaction of the
+purchaser that the claims are correct;
+Procurement Authority
+SYSTEM SHOULD THIS
+DECLARATION PROVE TO BE FALSE
+Verified From: Document body Page: Unknown Confidence:
+High Evidence: SYSTEM SHOULD THIS DECLARATION
+PROVE TO BE FALSE
+Winning Bidder
+OF-SCM-01C_v4 Page 4 of 20
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: OF-SCM-01C_v4 Page 4 of 20
+Legal Authority
+the Preferential Procurement
+Regulation,2022
+Verified From: RETURNABLE DOCUMENTS Page: 1
+Confidence: High Evidence: 5 Preferential Procurement Claim
+Form in terms of the Preferential Procurement
+Regulation,2022 –
+Country
+SOUTH AFRICA
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: SOUTH AFRICA FOR Yes No
+THE GOODS
+Tender Type
+REQUEST FOR QUOTATION
+Verified From: Document body Page: 1 Confidence: High
+Evidence: OF-SCM-01C REQUEST FOR QUOTATION
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 6
+Field
+Extracted Value
+Verified From
+Procedure
+ENQUIRIES MAY BE DIRECTED TO
+TECHNICAL ENQUIRIES MAY BE
+DIRECTED TO
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: BIDDING PROCEDURE
+ENQUIRIES MAY BE DIRECTED TO TECHNICAL
+ENQUIRIES MAY BE DIRECTED TO:
+Procurement Method
+REQUEST FOR QUOTATION
+Verified From: Document body Page: 1 Confidence: High
+Evidence: OF-SCM-01C REQUEST FOR QUOTATION
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 7
+2. Document Status Dashboard
+This dashboard shows deterministic extraction coverage by document area without cluttered percentage-heavy
+reporting.
+Document Metadata
+■■■■■■■■■■ 0%
+ 0%
+ 
+Tender Details
+■■■■■■■■■■ 80%
+80%
+BOQ
+■■■■■■■■■■ 100%
+100%
+Pricing
+■■■■■■■■■■ 100%
+100%
+Compliance
+■■■■■■■■■■ 100%
+100%
+Overall Extraction Status
+ MEDIUM
+ 
+Extraction Confidence Summary
+High Confidence
+Medium Confidence
+Low Confidence
+Missing
+17
+3
+0
+13
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 8
+3. Estimated Completion Plan
+Use this plan to organise the remaining deterministic completion work before submission.
+Metric
+Value
+Estimated Remaining Work
+0–1 Hours
+Open Information Items
+0
+Current Submission Position
+PARTIALLY READY
+Today's Work
+■ Final internal review
+■ Confirm signatures
+■ Prepare submission proof
+Tomorrow
+■ Review Compliance
+■ Verify Documents
+■ Final Review
+Estimated Completion: 0–1 Hours
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 9
+5. Evidence-Based Actions
+Actions below are generated only from extracted evidence and unresolved fields. They are intended to guide
+completion work before submission.
+Priorit
+y
+Action
+Reason
+Evidence
+Est. Ti
+me
+Responsi
+ble
+Required
+Docs
+Completion
+Steps
+Risk if Ignored
+Require
+d
+Resolve
+CIDB Grade
+Required for
+construction
+tenders
+where minim
+um contractor
+grading is
+specified.
+No direct
+evidence
+extracted
+15-30
+minutes
+Contracts
+Manager /
+Director
+Eligibility
+Criteria,
+Tender Notic
+e
+Open the section 
+listed as 'Docume
+nt body'.
+ Confirm whether
+ cidb grade 
+appears in the 
+original tender 
+wording.
+ Update the 
+submission pack 
+only after the 
+source wording 
+is confirmed.
+Bid quality may be
+reduced because
+cidb grade is not
+fully verified.
+Require
+d
+Resolve
+Compulsory
+Briefing
+Missing a
+compulsory
+briefing/site
+meeting can
+disqualify the
+submission.
+No direct
+evidence
+extracted
+15-30
+minutes
+Bid Admini
+strator /
+Contracts
+Manager
+Tender Notic
+e, Instruction
+s to Bidders
+Open the section 
+listed as 'Docume
+nt body'.
+ Confirm whether
+ compulsory 
+briefing appears 
+in the original 
+tender wording.
+ Update the 
+submission pack 
+only after the 
+source wording 
+is confirmed.
+Bid quality may be
+reduced because
+compulsory briefing
+is not fully verified.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 10
+5. Missing Information
+This section explains each information gap in plain language so a contractor knows exactly what is still missing,
+where to find it, who normally supplies it, and how to finish it.
+Critical Items
+No items currently grouped in this category.
+Required Items
+No items currently grouped in this category.
+Optional Items
+No items currently grouped in this category.
+No unresolved information gaps were detected in the current processing result.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 11
+6. Missing Documents
+These are the supporting documents a contractor normally has to attach separately. They are treated as pending
+until someone on your team has physically checked them.
+Tender Documents
+Priority
+Document
+Why It Appears
+Missing
+Where to Get It
+Who Provides It
+How to Complete It
+—
+No tender-document
+checklist items
+configured
+Company Documents
+Priority
+Document
+Why It Appears
+Missing
+Where to Get It
+Who Provides It
+How to Complete It
+●
+Critical
+Company Registratio
+n Certificate
+Separate company
+attachment — not
+extracted from the
+tender notice itself.
+Your company
+registry
+Company secretar
+y, admin team, or
+director
+Use the latest official
+record and verify the
+legal entity details
+match the tender forms.
+●
+Critical
+Tax Registration /
+Clearance
+Separate company
+attachment — not
+extracted from the
+tender notice itself.
+Tax authority
+portal or tax
+adviser
+Finance team or
+tax adviser
+Confirm the document
+is current and valid for
+the tender closing date.
+● High
+Insurance Certificate
+s
+Separate company
+attachment — not
+extracted from the
+tender notice itself.
+Broker or insurer
+Finance team or
+broker
+Check policy limits,
+expiry dates, and
+insured name match
+the tender requirements.
+● Medi
+um
+Bank Reference
+Letter
+Separate company
+attachment — not
+extracted from the
+tender notice itself.
+Your bank
+Finance team
+Request a current
+letter if the tender asks
+for financial standing or
+bank details.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 12
+7. Recommended Workflow
+Follow this sequence to move from partial tender data to a properly assembled submission pack.
+1. Read the tender instructions first
+Before filling in anything, confirm closing time, submission method, file order, compulsory forms, and whether hard
+copy or portal upload rules apply.
+2. Lock the pricing basis
+Work only from the final issued BOQ and addenda. Make sure the estimator and signatory are working from the
+same version.
+3. Collect company compliance documents
+Pull tax, registration, empowerment, insurance, banking, and any sector-specific certificates before you prepare the
+final pack.
+4. Complete tender forms line by line
+Fill every required field. If something does not apply, write 'N/A' rather than leaving blanks that can be treated as
+omissions.
+5. Verify signatures and authority
+Check who must sign each form, declaration, pricing page, and cover letter. Make sure the signatory has authority
+to bind the company.
+6. Perform a disqualification check
+Run through the mistakes list and checklist in this guide before you print, scan, or upload anything.
+7. Submit early and keep proof
+Finish early enough to recover from portal errors, rejected files, or scanner issues, and save proof of submission
+immediately.
+8. Do not finalise until the gaps are closed
+This guide still shows open work. Treat the missing information and missing documents sections as your live punch
+list.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 13
+8. Printable Submission Checklist
+Print this page and tick every box before submission. This is meant for desk use during the final pack review.
+■ Tender instructions reviewed in full
+■ Closing date, closing time, and submission address/portal rechecked
+■ Final BOQ version confirmed against all addenda
+■ Pricing checked for arithmetic, provisional sums, and VAT
+■ Currency confirmed (ZAR)
+■ Mandatory forms completed with no blank required fields
+■ Company registration details match supporting documents exactly
+■ Mandatory compliance documents attached and still valid
+■ Every required signature, initial, and date completed
+■ Final submission pack assembled in the required order
+■ Proof of submission plan ready (portal receipt, courier slip, or hand-delivery register)
+Tip: do this check with the final printed or uploaded pack in front of you, not from memory.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 14
+9. Common Disqualification Mistakes
+These are the mistakes that regularly sink otherwise good bids. Use them as a last-minute guardrail.
+Mistake
+How to Avoid It
+Blank form fields
+Write a value or 'N/A' everywhere the form expects a response.
+Unsigned declarations
+Confirm the authorised signatory signs every required declaration.
+Wrong file order
+Compile documents in the exact order requested by the tender instructions.
+Old certificates
+Check all compliance documents are still current on closing date.
+Last-minute submission
+Finish the upload early enough to fix rejected files or portal problems.
+Wrong BOQ version
+Confirm the pricing team is working from the final issued BOQ and all addenda.
+Expired tax certificate
+Check validity against the tender closing date, not the date of printing.
+Missing initials
+Review every form page and annexure for required initials.
+Missing signatures
+Ensure every declaration, form, and pricing page is signed by the authorised signatory.
+Incorrect pricing totals
+Recalculate extensions, subtotals, contingencies, VAT, and grand totals before submission.
+Wrong file naming
+Name uploaded files exactly as instructed by the tender or portal rules.
+Wrong submission method
+Confirm whether submission is portal, email, courier, hand delivery, or physical box.
+Missing annexures
+Check the returnable schedule list and attach every annexure in the correct order.
+Incorrect VAT treatment
+Apply VAT exactly as the tender pricing rules require and verify summary totals.
+Missing witness signatures
+Where witness signatures are required, make sure those fields are completed as well.
+Late upload
+Submit early enough to recover from portal issues, connectivity problems, or scanner delays.
+Password-protected PDFs
+Do not upload locked files unless the tender expressly allows them.
+Unreadable scanned forms
+Review every scan for legibility, orientation, and completeness before final upload.
+Mandatory briefing not attended
+Do not submit if briefing attendance was mandatory and your attendance cannot be proven.
+Incorrect company registration number
+Match the legal entity number exactly across forms and supporting documents.
+Missing declaration forms
+Check the tender instructions and returnable schedules for mandatory declarations.
+Wrong document order
+Assemble the pack in the sequence required by the tender instructions.
+Missing pricing schedule
+Do not finalise the submission without the official pricing schedule where required.
+Altered tender forms
+Never change issued tender wording, schedules, or mandatory form structures.
+Unsigned amendments
+Where addenda acknowledgement is required, sign and include every amendment page.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 15
+10. Helpful Tender Tips
+Tip
+Practical Advice
+1
+Keep a live folder for standard company documents so you do not scramble for certificates every time a tender closes.
+2
+Name files in submission order before you upload them. It reduces mistakes when portals show only filenames.
+3
+Have a second person check totals, VAT, signatures, and document order. Fresh eyes catch expensive misses.
+4
+Where the tender is silent, do not guess. Ask the tender contact in writing before closing date.
+5
+Finish scanning and merging PDFs early. File-size, password, and upside-down scan issues waste closing-day time.
+6
+Keep proof of submission, the final pack, and the pricing backup in one place immediately after submission.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 16
+11. Final Decision
+REVIEW BEFORE SUBMISSION
+Reasons
+✓ Currency identified
+✓ Sector identified
+✓ BOQ available
+✓ Pricing available
+✗ Closing Date missing
+Recommendation
+Complete final review and sign-off before submission.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: a9c4d82b24ea4895
+v4.0.0
+Tender Engine
+Evidence-Based Document Processing
+v4.0.0 | Generated: 2026-07-16  23:55
+Page 17
+12. Director Approval
+Director Approval
+Option 1
+Option 2
+Tender reviewed
+■ YES
+■ NO
+Approved for submission
+■ YES
+■ NO
+Authorised Signatory
+____________________
+Date
+____________________
+ No information has been invented. Verify all details before submission.
+ 

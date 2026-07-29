@@ -1,0 +1,9 @@
+Project Title: Tender Engine AI: Intelligent Construction Bid Processor
+
+One-Sentence Pitch: Tender Engine AI instantly reads messy South African tender PDFs and extracts BOQ items, totals, risks, and key details with full honesty about what it can't process—so contractors can quote faster and more accurately.
+
+The Problem: Contractors waste hours manually digging through long, poorly formatted tender documents full of placeholders and unclear tables, often leading to missed opportunities, under-quoting, or expensive mistakes.
+
+The Solution/Secret Sauce: Unlike standard PDF readers, our tool uses specialized extraction logic for South African construction documents. It provides clear confidence levels, warns users about weak or "placeholder" data, and offers practical advice on how to fill gaps, ensuring contractors quote with confidence rather than guessing.
+
+Target Market: Mid-sized electrical and maintenance contracting companies in South Africa who bid on government tenders regularly and need to reduce the time spent on painful manual extraction and pricing.

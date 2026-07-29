@@ -1,0 +1,33 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.chromedriver/
+downloads/
+*.log
+.idea/
+.vscode/
+tender_engine.db
+*.db
+.wdm/
+temp_downloads/
+storage/
+node_modules/
+dist/
+lambda_package.zip
+package/
+*.pyo
+*.pyd
+.Python
+ENV/
+
+# Big files
+large.txt
+fake.pdf
+*.tmp
+
+# Keep these for deployment
+!.dockerignore
+!Dockerfile
+!docker-compose.yml

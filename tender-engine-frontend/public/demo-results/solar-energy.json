@@ -1,0 +1,69 @@
+{
+  "job_id": "demo-solar-005",
+  "status": "completed",
+  "filename": "Solar_PV_Installation_RFP.pdf",
+  "completed_stages": ["extract_text", "detect_sector", "detect_duration", "detect_locations", "extract_workforce", "extract_schedule", "extract_boq", "pricing"],
+  "failed_stages": [],
+  "metadata": { "sector": "Energy", "duration_months": 9, "locations": ["Northern Cape", "Upington"], "extraction_method": "hybrid", "pipeline_version": "v2.1.0" },
+  "detected_sector": "Energy — Solar PV Installation",
+  "detected_duration_months": 9,
+  "detected_locations": ["Northern Cape", "Upington"],
+  "detected_workforce": {
+    "Electrical Engineers": { "count": 6, "source": "extracted" },
+    "Solar PV Installers": { "count": 35, "source": "extracted" },
+    "Civil Works Crew": { "count": 20, "source": "extracted" },
+    "General Labour": { "count": 30, "source": "inferred" },
+    "Electricians": { "count": 10, "source": "extracted" },
+    "Safety Officers": { "count": 3, "source": "extracted" },
+    "total_personnel": 104
+  },
+  "detected_schedule": {
+    "start_date": "Q1 2027",
+    "phases": [
+      { "phase": "Site preparation & mounting structures", "duration": "2 months" },
+      { "phase": "Solar panel installation", "duration": "3 months" },
+      { "phase": "Inverter & electrical infrastructure", "duration": "2 months" },
+      { "phase": "Grid connection & commissioning", "duration": "2 months" }
+    ]
+  },
+  "boq_items": [
+    { "item_no": "1.1", "description": "Site preparation and earthworks", "quantity": 1, "unit": "lot", "rate": 850000, "amount": 850000 },
+    { "item_no": "1.2", "description": "Solar mounting structures (ground mounted)", "quantity": 12000, "unit": "kW", "rate": 450, "amount": 5400000 },
+    { "item_no": "2.1", "description": "Monocrystalline PV panels 550W", "quantity": 21820, "unit": "units", "rate": 1850, "amount": 40367000 },
+    { "item_no": "2.2", "description": "String inverters 250kW", "quantity": 48, "unit": "units", "rate": 185000, "amount": 8880000 },
+    { "item_no": "3.1", "description": "Step-up transformer 11/33kV", "quantity": 2, "unit": "units", "rate": 2400000, "amount": 4800000 },
+    { "item_no": "3.2", "description": "MV switchgear and protection relays", "quantity": 1, "unit": "lot", "rate": 3200000, "amount": 3200000 },
+    { "item_no": "4.1", "description": "DC cables and combiner boxes", "quantity": 1, "unit": "lot", "rate": 2800000, "amount": 2800000 },
+    { "item_no": "4.2", "description": "AC cables and underground trunking", "quantity": 4500, "unit": "m", "rate": 580, "amount": 2610000 },
+    { "item_no": "5.1", "description": "SCADA and monitoring system", "quantity": 1, "unit": "lot", "rate": 1850000, "amount": 1850000 },
+    { "item_no": "5.2", "description": "Security fencing and access control", "quantity": 1, "unit": "lot", "rate": 950000, "amount": 950000 }
+  ],
+  "boq_confidence": "high",
+  "pricing_result": {
+    "total_boq_amount": 70767000,
+    "contingency_10_percent": 7076700,
+    "escalation_8_percent": 5661360,
+    "professional_fees": 3538350,
+    "total_estimated_amount": 87043410,
+    "currency": "ZAR",
+    "pricing_mode": "detailed_estimate",
+    "markups_applied": true,
+    "item_count": 10
+  },
+  "pricing_status": "completed",
+  "pricing_unavailable_reason": null,
+  "extraction_method": "hybrid",
+  "pipeline_version": "v2.1.0",
+  "warnings": [
+    "Panel quantity derived from stated capacity (12MW) divided by panel wattage — not explicitly listed",
+    "Labour numbers for specialized solar installers inferred from panel count and industry benchmarks"
+  ],
+  "confidence_scores": {
+    "overall": 0.88,
+    "boq_extraction": 0.93,
+    "workforce": 0.74,
+    "sector": 0.96,
+    "pricing": 0.86
+  },
+  "executive_summary": "This RFP covers the design, supply, and installation of a 12MW ground-mounted solar PV plant near Upington in the Northern Cape — one of South Africa's prime solar energy regions.\n\nKey findings:\n• Sector: Energy — Solar PV Installation\n• Project Duration: 9 months\n• Total BOQ Value: ZAR 70,767,000\n• Estimated Total (incl. contingency & fees): ZAR 87,043,410\n• Total Workforce Required: 104 personnel across 6 categories\n• 21,820 solar panels with 250kW string inverters\n• BOQ Confidence: High (93%)\n• Overall Processing Confidence: 88%\n\nA well-documented renewable energy tender with detailed equipment specifications. All stages completed successfully."
+}

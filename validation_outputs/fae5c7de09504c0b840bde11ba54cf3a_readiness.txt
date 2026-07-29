@@ -1,0 +1,186 @@
+Tender Engine
+ Tender Readiness Assessment
+ 
+Overall Status
+ Ready with Minor Actions
+ 
+Processing completed with some issues. Review flagged items before submission.
+Readiness Score
+Final Score: 32.8%
+Base score before evidence deductions: 59.8%
+Calculation
+Deduction
+Missing Project Title
+-6
+Missing Estimated Contract Value
+-6
+Medium confidence Location
+-1
+Medium confidence Submission Method
+-1
+Medium confidence Mandatory Documents
+-1
+Missing CIDB Grade
+-6
+Missing Compulsory Briefing
+-6
+Final Score
+32.8%
+Verification Summary
+✓  Project verified  (Project title extracted)
+✗  Tender Reference not verified  (Not confidently identified)
+✓  Bill of Quantities (BOQ) verified  (14 items extracted)
+✓  Pricing verified  (Pricing calculated)
+✓  Executive Summary verified  (Data available: sector, duration, locations)
+✓  Submission Letter verified  (Available for download)
+✓  Submission Package verified  (Available for download)
+Verified Extraction Evidence
+Important extracted values below show where they were found, how they were selected, and how
+confident the extraction is.
+
+Field
+Value
+Verified From
+Tender Number
+SAHPRA2026/ PROVISION OF AN ELE
+Page Unknown
+Document header
+Confidence: High
+Employer
+SUPPLIER INFORMATION NAME OF BIDDER
+Page Unknown
+Document body
+Confidence: High
+Closing Date
+21 April 2026
+Page Unknown
+Document body
+Confidence: High
+Closing Time
+16:00
+Page Unknown
+Document body
+Confidence: High
+Currency
+ZAR
+Page 1
+Pricing / contract value context
+Confidence: High
+BOQ Summary
+{'item_count': 28, 'section_count': 2, 'subsection_count': 0, 'hierarchy_levels': 1, 'totals': {'subtotal': 88.0, 'total_before_vat': 88.0, 'vat': None, 'total_incl_vat': None, 'page_count': 20, 'calculated_from_items': True}, 'completeness_percentage': 0.0, 'extraction_confidence': 'Low', 'validation': {'quantity_valid': True, 'unit_valid': True, 'currency_valid': False, 'total_valid': True, 'items_with_quantities': 13, 'items_with_rates': 7, 'items_with_amounts': 12, 'items_with_currency': 0, 'quantity_issues': [], 'unit_issues': [], 'currency_issues': ['No currency detected on any item'], 'total_issues': []}, 'missing_information': ['No currency detected on any item', 'Missing quantity: Description', 'Missing quantity: SUB-TOTAL FOR 3 YEARS', 'Missing quantity: SAHPRA SPECIFIC PREFERENTIAL PROCUREMENT GOALS', 'Missing quantity: Description / Goals', 'Missing quantity: Category A: Promotion of SMMEs', 'Missing quantity: Category B: Promotion of Historically', 'Missing quantity: Disadvantaged Individuals -HDI (Large', 'Missing quantity: enterprises)', 'Missing quantity: ', 'Missing unit: Description', 'Missing unit: QUARTERLY SERVICE OF\nDISTRIBUTION BOARDS', 'Missing unit: INSTALLATIONS AND\nMAINTENANCE OF ELECTRICAL\nAND SOLAR OFF-GRID\nINFRASTRUCTURE', 'Missing unit: Supply and install recessed LED\nLuminaires as per green\nrequirements.', 'Missing unit: Supply and install 50w\ntransformer down light as a\nreplacement to a faulty on with\nsame type', 'Missing unit: Supply and install transformer\nlight bulb as a replacement to a\nfaulty one with same type-\n50 watts', 'Missing unit: Supply and install transformer\nlight bulb as a replacement to a\nfaulty one with same type-\n60 watts', 'Missing unit: SUB-TOTAL FOR 3 YEARS', 'Missing unit: PRICE', 'Missing unit: Specific Goals', 'Missing unit: SAHPRA SPECIFIC PREFERENTIAL PROCUREMENT GOALS', 'Missing unit: Description / Goals', 'Missing unit: Category A: Promotion of SMMEs', 'Missing unit: Category B: Promotion of Historically', 'Missing unit: Disadvantaged Individuals -HDI (Large', 'Missing unit: enterprises)', 'Missing unit: ', 'Missing rate: Description', 'Missing rate: QUARTERLY SERVICE OF\nDISTRIBUTION BOARDS', 'Missing rate: INSTALLATIONS AND\nMAINTENANCE OF ELECTRICAL\nAND SOLAR OFF-GRID\nINFRASTRUCTURE', 'Missing rate: Supply and install recessed LED\nLuminaires as per green\nrequirements.', 'Missing rate: Supply and install 50w\ntransformer down light as a\nreplacement to a faulty on with\nsame type', 'Missing rate: Supply and install transformer\nlight bulb as a replacement to a\nfaulty one with same type-\n50 watts', 'Missing rate: Supply and install transformer\nlight bulb as a replacement to a\nfaulty one with same type-\n60 watts', 'Missing rate: SUB-TOTAL FOR 3 YEARS', 'Missing rate: PRICE', 'Missing rate: Specific Goals', 'Missing rate: SAHPRA SPECIFIC PREFERENTIAL PROCUREMENT GOALS', 'Missing rate: Description / Goals', 'Missing rate: Category A: Promotion of SMMEs', 'Missing rate: Category B: Promotion of Historically', 'Missing rate: Disadvantaged Individuals -HDI (Large', 'Missing rate: enterprises)', 'Missing rate: ', 'Formula error:  expected 36.00 got 4.00', 'Formula error:  expected 28.00 got 2.00', 'Formula error:  expected 20.00 got 5.00', 'Formula error:  expected 24.00 got 4.00', 'Formula error:  expected 24.00 got 3.00']}
+Page Unknown
+BOQ tables
+Confidence: High
+Trade Summary
+{'Civil': {'item_count': 22, 'amount_total': 88.0}, 'Electrical': {'item_count': 6, 'amount_total': 0.0}}
+Page Unknown
+BOQ tables
+Confidence: High
+Work Categories
+['Civil', 'Electrical']
+Page Unknown
+BOQ / scope of work
+Confidence: High
+Location
+['western_cape', 'national']
+Page Unknown
+Document body
+Confidence: Medium
+Submission Method
+submitted to the email address as per the purchase order issued should you be the
+Page Unknown
+Document body
+Confidence: Medium
+Mandatory Documents
+RETURNABLE DOCUMENTS
+Page Unknown
+Document body
+Confidence: Medium
+Winning Bidder
+OF-SCM-01C_v4 Page 4 of 20
+Page 16
+Preference Point System
+Confidence: High
+Buyer
+that the claims are correct
+Page 16
+Preference Point System
+Confidence: High
+Procurement Authority
+SYSTEM SHOULD THIS DECLARATION PROVE TO BE FALSE
+Page Unknown
+Document body
+Confidence: High
+Legal Authority
+the Preferential Procurement Regulation,2022
+Page 1
+RETURNABLE DOCUMENTS
+Confidence: High
+
+Country
+SOUTH AFRICA
+Page 16
+Preference Point System
+Confidence: High
+Tender Type
+REQUEST FOR QUOTATION
+Page 1
+Document body
+Confidence: High
+Procedure
+ENQUIRIES MAY BE DIRECTED TO TECHNICAL ENQUIRIES MAY BE DIRECTED TO
+Page 16
+Preference Point System
+Confidence: High
+Procurement Method
+REQUEST FOR QUOTATION
+Page 1
+Document body
+Confidence: High
+Sector
+electrical
+Page 1
+Document body
+Confidence: High
+Manual Review Required
+The following fields require user attention before submission:
+  Employer / Procuring Entity  (requires manual completion)
+  Applicant / Company Name  (requires manual completion)
+  Banking Details  (requires manual completion)
+  Company Registration  (requires manual completion)
+  Contact Information  (requires manual completion)
+Missing Supporting Documents
+Commonly required tender documents. Checked against extracted document content.
+Document
+Status
+Tax Clearance Certificate
+<font color="Color(.082353,.341176,.141176,1)">✓ Detected</font>
+CSD Registration (Central Supplier Database)
+<font color="Color(.082353,.341176,.141176,1)">✓ Detected</font>
+CIDB Registration
+<font color="Color(.533333,.533333,.533333,1)">■ Not detected</font>
+B-BBEE Certificate / Affidavit
+<font color="Color(.082353,.341176,.141176,1)">✓ Detected</font>
+Proof of Banking Details
+<font color="Color(.533333,.533333,.533333,1)">■ Not detected</font>
+Signed Declaration of Interest
+<font color="Color(.082353,.341176,.141176,1)">✓ Detected</font>
+Risk Assessment
+ Overall Risk Level: MEDIUM
+ 
+Deterministic Assessment:
+
+ Failed processing stages: numeric classification.
+ 81 processing warnings recorded.
+Recommendations
+1. Verify employer / procuring entity details.
+2. Complete applicant information before submission.
+3. Attach outstanding document: SBD 2 — Tax Clearance Certificate.
+4. Attach outstanding document: SBD 8 — Bidders Declaration.
+5. Attach outstanding document: Bill of Quantities (BOQ).
+6. Attach outstanding document: Drawings / Plans.
+7. Attach outstanding document: Financial Statements.
+ Generated by Tender Engine
+ Generated from verified document extraction. Manual verification required before submission.
+ Version 1.0.0  |  Job ID: fae5c7de09504c0b...  |  Generated: 2026-07-16 22:18:29
+ 

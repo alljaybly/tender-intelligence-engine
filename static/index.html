@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tender Engine — Processing Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* ─── Reset & Variables ─── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --blue-light: #eff6ff;
+            --red: #dc2626;
+            --red-light: #fef2f2;
+            --yellow: #eab308;
+            --yellow-light: #fefce8;
+            --green: #16a34a;
+            --green-light: #f0fdf4;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --radius: 10px;
+            --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+            --shadow-lg: 0 10px 25px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        html { font-size: 15px; }
+        body {
+            font-family: var(--font);
+            background: var(--gray-50);
+            color: var(--gray-800);
+            min-height: 100vh;
+        }
+
+        /* ─── Layout ─── */
+        .app-header {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        .app-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--gray-900);
+        }
+        .app-header .logo i { color: var(--blue); font-size: 1.5rem; }
+        .app-header .logo span { background: var(--yellow); color: var(--gray-900); font-size: .65rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-left: 4px; }
+        .app-header .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .85rem;
+            color: var(--gray-500);
+        }
+        .app-header .status-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--green);
+            display: inline-block;
+        }
+
+        .main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* ─── Cards ─── */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .card-header h2 {
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .card-body { padding: 24px; }
+
+        /* ─── Toolbar ─── */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* ─── Buttons ─── */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: .88rem;
+            font-family: var(--font);
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all .15s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn i { font-size: .9rem; }
+        .btn-primary {
+            background: var(--blue);
+            color: white;
+            border-color: var(--blue);
+        }
+        .btn-primary:hover { background: var(--blue-dark); }
+        .btn-primary:disabled { opacity: .55; cursor: not-allowed; }
+        .btn-outline {
+            background: white;
+            color: var(--gray-700);
+            border-color: var(--gray-300);
+        }
+        .btn-outline:hover { background: var(--gray-100); border-color: var(--gray-400); }
+        .btn-outline:disabled { opacity: .5; cursor: not-allowed; }
+        .btn-danger {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+        .btn-danger:hover { background: #b91c1c; }
+
+        /* ─── Stats bar ─── */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-200);
+            padding: 18px 20px;
+            box-shadow: var(--shadow);
+        }
+        .stat-card .stat-label { font-size: .8rem; color: var(--gray-500); font-weight: 500; text-transform: uppercase; letter-spacing: .03em; }
+        .stat-card .stat-value { font-size: 1.6rem; font-weight: 700; margin-top: 4px; }
+        .stat-card .stat-icon { font-size: 1.5rem; opacity: .3; }
+
+        /* ─── Progress bar ─── */
+        .progress-bar {
+            height: 6px;
+            background: var(--gray-200);
+            border-radius: 99px;
+            overflow: hidden;
+            margin-top: 12px;
+        }
+        .progress-bar .fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+            border-radius: 99px;
+            transition: width .6s ease;
+        }
+        .progress-label {
+            font-size: .82rem;
+            color: var(--gray-500);
+            margin-top: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* ─── Status badges ─── */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: .75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+        }
+        .badge-success { background: var(--green-light); color: var(--green); }
+        .badge-warning { background: var(--yellow-light); color: #a16207; }
+        .badge-error   { background: var(--red-light); color: var(--red); }
+        .badge-info    { background: var(--blue-light); color: var(--blue); }
+        .badge-neutral { background: var(--gray-100); color: var(--gray-500); }
+
+        /* ─── Notifications ─── */
+        .toast-container {
+            position: fixed;
+            top: 80px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 380px;
+        }
+        .toast {
+            background: white;
+            border-radius: 10px;
+            padding: 14px 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.12);
+            border-left: 4px solid var(--blue);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            animation: slideIn .3s ease;
+            font-size: .88rem;
+        }
+        .toast.error { border-left-color: var(--red); }
+        .toast.success { border-left-color: var(--green); }
+        .toast.warning { border-left-color: var(--yellow); }
+        .toast i { font-size: 1.1rem; margin-top: 1px; }
+        .toast .toast-close { margin-left: auto; cursor: pointer; color: var(--gray-400); background: none; border: none; font-size: 1rem; padding: 0 4px; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* ─── Spinner ─── */
+        .spinner {
+            width: 20px; height: 20px;
+            border: 2.5px solid var(--gray-200);
+            border-top-color: var(--blue);
+            border-radius: 50%;
+            animation: spin .6s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ─── Table ─── */
+        .tender-table-wrap { overflow-x: auto; }
+        .tender-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .88rem;
+        }
+        .tender-table th {
+            text-align: left;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: var(--gray-500);
+            background: var(--gray-50);
+            border-bottom: 2px solid var(--gray-200);
+            white-space: nowrap;
+        }
+        .tender-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--gray-100);
+            vertical-align: top;
+        }
+        .tender-table tbody tr {
+            transition: background .12s ease;
+        }
+        .tender-table tbody tr:hover { background: var(--blue-light); }
+        .tender-table tbody tr:last-child td { border-bottom: none; }
+        .tender-table .tender-title {
+            font-weight: 500;
+            max-width: 320px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .tender-table .tender-cat {
+            font-size: .8rem;
+            color: var(--gray-500);
+            margin-top: 2px;
+        }
+        .tender-table .score {
+            font-weight: 700;
+        }
+        .tender-table .score-high { color: var(--green); }
+        .tender-table .score-mid { color: var(--yellow); }
+        .tender-table .score-low { color: var(--red); }
+        .tender-table .doc-count {
+            font-weight: 500;
+            color: var(--blue);
+        }
+
+        /* ─── Search ─── */
+        .search-bar {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 8px 14px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: .85rem;
+            font-family: var(--font);
+            outline: none;
+            transition: border-color .15s;
+        }
+        .search-bar input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+
+        /* ─── Empty state ─── */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray-400);
+        }
+        .empty-state i { font-size: 3rem; margin-bottom: 16px; }
+        .empty-state h3 { color: var(--gray-600); font-weight: 600; }
+
+        /* ─── Job info bar ─── */
+        .job-info {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: .85rem;
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-200);
+        }
+        .job-info .job-id { font-family: monospace; color: var(--gray-500); }
+        .job-info .job-status { display: flex; align-items: center; gap: 8px; }
+
+        /* ─── Footer ─── */
+        .app-footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--gray-400);
+            font-size: .8rem;
+            border-top: 1px solid var(--gray-200);
+            margin-top: 40px;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .main-container { padding: 16px; }
+            .card-header { flex-direction: column; align-items: flex-start; }
+            .toolbar { width: 100%; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .tender-table th, .tender-table td { padding: 8px 10px; font-size: .8rem; }
+            .app-header { padding: 0 16px; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ─── Existing analyzer section (preserved) ─── */
+        .analyzer-section {
+            margin-top: 24px;
+        }
+        .analyzer-section textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px 14px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: .85rem;
+            resize: vertical;
+            outline: none;
+        }
+        .analyzer-section textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+        .analyzer-section .input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .analyzer-section .input-group input[type="file"] {
+            font-size: .85rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─── Header ─── -->
+<header class="app-header">
+    <div class="logo">
+        <i class="fas fa-file-invoice"></i>
+        Tender Engine
+        <span>BETA</span>
+    </div>
+    <div class="status-badge">
+        <span class="status-dot"></span>
+        System Online
+    </div>
+</header>
+
+<!-- ─── Toast container ─── -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- ─── Main ─── -->
+<main class="main-container">
+
+    <!-- Stats -->
+    <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+            <div class="stat-label"><i class="fas fa-file-invoice stat-icon" style="margin-right:4px;"></i> Tenders</div>
+            <div class="stat-value" id="statTenders">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label"><i class="fas fa-file-pdf stat-icon" style="margin-right:4px;"></i> Documents</div>
+            <div class="stat-value" id="statDocs">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label"><i class="fas fa-arrow-up stat-icon" style="margin-right:4px;"></i> Avg Score</div>
+            <div class="stat-value" id="statScore">—</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label"><i class="fas fa-clock stat-icon" style="margin-right:4px;"></i> Status</div>
+            <div class="stat-value" style="font-size: 1rem; margin-top: 8px;" id="statStatus">
+                <span class="badge badge-neutral">Idle</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toolbar Card -->
+    <div class="card">
+        <div class="card-header">
+            <h2><i class="fas fa-search" style="color: var(--blue); margin-right: 8px;"></i>Tender Processing Dashboard</h2>
+            <div class="toolbar">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search tenders by keyword..." oninput="filterTenders()">
+                </div>
+                <button class="btn btn-primary" id="btnScrape" onclick="startScrape()">
+                    <i class="fas fa-sync-alt"></i> Start Scrape
+                </button>
+                <button class="btn btn-outline" id="btnRefresh" onclick="refreshFromServer()" title="Load latest scraped data">
+                    <i class="fas fa-redo"></i> Refresh
+                </button>
+                <button class="btn btn-outline" id="btnDownloadZip" onclick="downloadZip()" disabled>
+                    <i class="fas fa-file-archive"></i> Download ZIP
+                </button>
+            </div>
+        </div>
+
+        <!-- Job progress area -->
+        <div id="jobProgress" style="display:none; padding: 0 24px 16px;">
+            <div class="job-info">
+                <span><strong>Job ID:</strong> <span class="job-id" id="currentJobId"></span></span>
+                <span class="job-status" id="jobStatusDisplay">
+                    <span class="spinner" id="jobSpinner"></span>
+                    <span id="jobStatusText">Queued...</span>
+                </span>
+            </div>
+            <div class="progress-bar">
+                <div class="fill" id="progressFill"></div>
+            </div>
+            <div class="progress-label">
+                <span id="progressDetail">Waiting...</span>
+                <span id="progressTime">0s</span>
+            </div>
+        </div>
+
+        <div class="card-body" style="padding-top:0;">
+            <!-- Tenders table -->
+            <div class="tender-table-wrap" id="tenderTableWrap">
+                <div class="empty-state" id="emptyState">
+                    <i class="fas fa-inbox"></i>
+                    <h3>No Tenders Loaded</h3>
+                    <p style="margin-top:6px; color:var(--gray-400);">Click <strong>Start Scrape</strong> to fetch the latest tenders from eTenders.</p>
+                </div>
+                <table class="tender-table" id="tenderTable" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Closing</th>
+                            <th>Documents</th>
+                            <th>Score</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tenderBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preserved Analyzer Section -->
+    <div class="card analyzer-section">
+        <div class="card-header">
+            <h2><i class="fas fa-upload" style="color: var(--blue); margin-right: 8px;"></i>Analyze Tender Document</h2>
+        </div>
+        <div class="card-body">
+            <div class="input-group">
+                <input type="file" id="pdfFile" accept=".pdf">
+                <button class="btn btn-outline" onclick="uploadTender()">
+                    <i class="fas fa-microchip"></i> Analyze
+                </button>
+            </div>
+            <label style="display:block; margin-top:16px; font-weight:500; font-size:.88rem; color:var(--gray-600);">Company Profile (JSON)</label>
+            <textarea id="companyProfile">{
+  "keywords": ["construction", "roads", "infrastructure"],
+  "min_years_experience": 5
+}</textarea>
+            <h3 style="margin-top:16px; font-size:.88rem; font-weight:600; color:var(--gray-600);">Response</h3>
+            <pre id="responseBox" style="background:var(--gray-900); color:#22c55e; padding:14px; border-radius:8px; overflow-x:auto; font-size:.82rem; margin-top:8px;">Ready.</pre>
+        </div>
+    </div>
+</main>
+
+<footer class="app-footer">
+    Tender Engine &mdash; Processing Platform &middot; &copy; 2026
+</footer>
+
+<script>
+// ─── State ───
+let currentTenders = [];
+let polling = false;
+let pollTimer = null;
+
+// ─── Toast system ───
+function showToast(message, type = 'info', duration = 5000) {
+    const container = document.getElementById('toastContainer');
+    const icons = { info: 'fa-circle-info', success: 'fa-circle-check', error: 'fa-circle-xmark', warning: 'fa-triangle-exclamation' };
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.innerHTML = `<i class="fas ${icons[type] || icons.info}" style="color:var(--${type === 'error' ? 'red' : type === 'success' ? 'green' : type === 'warning' ? 'yellow' : 'blue'})"></i>
+                       <span>${message}</span>
+                       <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>`;
+    container.appendChild(toast);
+    setTimeout(() => { if (toast.parentElement) toast.remove(); }, duration);
+}
+
+// ─── Progress display ───
+function showProgress(jobId) {
+    const div = document.getElementById('jobProgress');
+    div.style.display = 'block';
+    document.getElementById('currentJobId').textContent = jobId;
+    document.getElementById('jobStatusText').textContent = 'Queued...';
+    document.getElementById('jobSpinner').style.display = 'inline-block';
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressDetail').textContent = 'Waiting in queue...';
+    document.getElementById('progressTime').textContent = '0s';
+    document.getElementById('btnScrape').disabled = true;
+    document.getElementById('statStatus').innerHTML = '<span class="badge badge-warning"><span class="spinner" style="width:12px;height:12px;border-width:2px;"></span> Scraping</span>';
+}
+
+function updateProgress(status, progress, elapsed) {
+    document.getElementById('jobStatusText').textContent = status.charAt(0).toUpperCase() + status.slice(1);
+    if (status === 'processing' || status === 'complete') {
+        document.getElementById('jobSpinner').style.display = status === 'complete' ? 'none' : 'inline-block';
+    }
+    if (progress === 'scraping') {
+        document.getElementById('progressDetail').textContent = 'Scraping tender data from eTenders...';
+        document.getElementById('progressFill').style.width = '40%';
+    } else if (progress === 'done' || status === 'complete') {
+        document.getElementById('progressDetail').textContent = 'Scraping complete!';
+        document.getElementById('progressFill').style.width = '100%';
+    }
+    document.getElementById('progressTime').textContent = `${elapsed}s`;
+}
+
+function hideProgress() {
+    document.getElementById('btnScrape').disabled = false;
+    // Keep progress bar visible for reference, but it will be hidden next scrape
+}
+
+// ─── Start scrape ───
+async function startScrape() {
+    const btn = document.getElementById('btnScrape');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner" style="width:16px;height:16px;border-width:2px;border-top-color:white;"></span> Scraping...';
+
+    try {
+        const res = await fetch('/api/scrape', {
+            headers: { 'x-api-key': 'test_key_123' }
+        });
+        const data = await res.json();
+
+        if (data.job_id) {
+            showToast(`Scrape job started: ${data.job_id.slice(0,8)}...`, 'info');
+            showProgress(data.job_id);
+            pollJob(data.job_id, Date.now());
+        } else {
+            showToast('Failed to start scrape job', 'error');
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-sync-alt"></i> Start Scrape';
+        }
+    } catch (err) {
+        showToast(`Network error: ${err.message}`, 'error');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fas fa-sync-alt"></i> Start Scrape';
+    }
+}
+
+// ─── Poll job status ───
+function pollJob(jobId, startTime) {
+    if (polling) return;
+    polling = true;
+
+    function tick() {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        fetch(`/api/status/${jobId}`, {
+            headers: { 'x-api-key': 'test_key_123' }
+        })
+        .then(r => r.json())
+        .then(job => {
+            const status = job.status || 'queued';
+            const progress = job.progress || '';
+            updateProgress(status, progress, elapsed);
+
+            if (status === 'complete') {
+                polling = false;
+                hideProgress();
+                document.getElementById('btnScrape').innerHTML = '<i class="fas fa-sync-alt"></i> Start Scrape';
+                document.getElementById('statStatus').innerHTML = '<span class="badge badge-success">Complete</span>';
+
+                // Fetch results
+                fetchResults(jobId);
+                if (pollTimer) clearInterval(pollTimer);
+                return;
+            }
+
+            if (status === 'failed') {
+                polling = false;
+                hideProgress();
+                document.getElementById('btnScrape').innerHTML = '<i class="fas fa-sync-alt"></i> Start Scrape';
+                document.getElementById('statStatus').innerHTML = '<span class="badge badge-error">Failed</span>';
+                showToast(`Scrape failed: ${job.error || 'Unknown error'}`, 'error');
+                if (pollTimer) clearInterval(pollTimer);
+                return;
+            }
+
+            // Still running — poll again in 2s
+            pollTimer = setTimeout(tick, 2000);
+        })
+        .catch(err => {
+            console.error('Poll error:', err);
+            pollTimer = setTimeout(tick, 3000);
+        });
+    }
+
+    tick();
+}
+
+// ─── Fetch results ───
+async function fetchResults(jobId) {
+    try {
+        const res = await fetch(`/api/results/${jobId}`, {
+            headers: { 'x-api-key': 'test_key_123' }
+        });
+        const data = await res.json();
+
+        if (data.status === 'complete' && data.tenders) {
+            currentTenders = data.tenders;
+            renderTenders(data.tenders);
+            updateStats(data.tenders);
+            document.getElementById('btnDownloadZip').disabled = false;
+            showToast(`Loaded ${data.tenders.length} tenders successfully`, 'success');
+        } else if (data.status === 'failed') {
+            showToast(`Scrape failed: ${data.error}`, 'error');
+        }
+    } catch (err) {
+        showToast(`Error fetching results: ${err.message}`, 'error');
+    }
+}
+
+// ─── Refresh from server (load last scrape CSV) ───
+async function refreshFromServer() {
+    // Check if there's a recent completed job — we don't have a "list jobs" endpoint,
+    // so we show a toast directing the user to scrape first.
+    if (currentTenders.length === 0) {
+        showToast('No tenders loaded. Click "Start Scrape" first.', 'warning');
+    } else {
+        showToast(`Showing ${currentTenders.length} tenders from last scrape.`, 'info');
+    }
+}
+
+// ─── Render tenders table ───
+function renderTenders(tenders) {
+    const tbody = document.getElementById('tenderBody');
+    const table = document.getElementById('tenderTable');
+    const empty = document.getElementById('emptyState');
+
+    tbody.innerHTML = '';
+
+    if (!tenders || tenders.length === 0) {
+        table.style.display = 'none';
+        empty.style.display = 'block';
+        empty.innerHTML = `<i class="fas fa-search"></i><h3>No Tenders Found</h3><p style="margin-top:6px;color:var(--gray-400);">The scrape returned 0 relevant results.</p>`;
+        return;
+    }
+
+    table.style.display = '';
+    empty.style.display = 'none';
+
+    tenders.forEach((t, idx) => {
+        const score = t.ai_score != null ? t.ai_score : (t.score || 0);
+        const scoreClass = score >= 70 ? 'score-high' : (score >= 40 ? 'score-mid' : 'score-low');
+        const docCount = t.num_documents || (t.downloaded_paths ? t.downloaded_paths.split(';').filter(p => p.trim()).length : 0);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td style="color:var(--gray-400);font-weight:500;">${idx + 1}</td>
+            <td>
+                <div class="tender-title">${escapeHtml(t.title || '—')}</div>
+                <div class="tender-cat"><i class="fas fa-tag" style="font-size:.7rem;margin-right:3px;"></i>${escapeHtml(t.category || '')}</div>
+            </td>
+            <td><span class="badge badge-info">${escapeHtml(t.category ? t.category.slice(0,30) : '—')}</span></td>
+            <td style="white-space:nowrap;">${escapeHtml(t.closing_date || '—')}</td>
+            <td><span class="doc-count">${docCount} PDF${docCount !== 1 ? 's' : ''}</span></td>
+            <td><span class="score ${scoreClass}">${score}</span></td>
+            <td>
+                <button class="btn btn-outline" style="padding:4px 10px;font-size:.75rem;" onclick="viewTender(${idx})">
+                    <i class="fas fa-eye"></i> View
+                </button>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+// ─── Update stats ───
+function updateStats(tenders) {
+    const total = tenders.length;
+    const totalDocs = tenders.reduce((sum, t) => sum + (t.num_documents || 0), 0);
+    const scores = tenders.map(t => t.ai_score != null ? t.ai_score : (t.score || 0));
+    const avgScore = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+
+    document.getElementById('statTenders').textContent = total;
+    document.getElementById('statDocs').textContent = totalDocs;
+    document.getElementById('statScore').textContent = avgScore;
+}
+
+// ─── Filter tenders ───
+function filterTenders() {
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const rows = document.querySelectorAll('#tenderBody tr');
+    let visible = 0;
+
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const match = !q || text.includes(q);
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+    });
+
+    const empty = document.getElementById('emptyState');
+    if (rows.length > 0 && visible === 0) {
+        // Show "no results" in the table area
+        empty.style.display = 'block';
+        empty.innerHTML = `<i class="fas fa-filter"></i><h3>No Matching Tenders</h3><p style="margin-top:6px;color:var(--gray-400);">Try a different search term.</p>`;
+        document.getElementById('tenderTable').style.display = 'none';
+    } else if (rows.length > 0) {
+        empty.style.display = 'none';
+        document.getElementById('tenderTable').style.display = '';
+    }
+}
+
+// ─── View tender detail ───
+function viewTender(idx) {
+    const t = currentTenders[idx];
+    if (!t) return;
+    const paths = (t.downloaded_paths || '').split(';').filter(p => p.trim());
+    let msg = `Tender: ${t.title || '—'}\nCategory: ${t.category || '—'}\nClosing: ${t.closing_date || '—'}\nScore: ${t.ai_score || t.score || '—'}\nDocuments: ${paths.length}\n\n`;
+    if (paths.length) {
+        msg += 'Downloaded files:\n' + paths.map(p => '  • ' + p.trim()).join('\n');
+    }
+    showToast(
+        `<strong>${escapeHtml(t.title ? t.title.slice(0,60) : 'Tender')}</strong><br>Category: ${escapeHtml(t.category || '—')} &middot; Closing: ${escapeHtml(t.closing_date || '—')} &middot; Score: ${t.ai_score || t.score || '—'}`,
+        'info', 6000
+    );
+}
+
+// ─── Download ZIP ───
+async function downloadZip() {
+    if (!currentTenders.length) {
+        showToast('No tenders to download.', 'warning');
+        return;
+    }
+
+    // Collect all downloaded file paths
+    const paths = [];
+    currentTenders.forEach(t => {
+        if (t.downloaded_paths) {
+            t.downloaded_paths.split(';').forEach(p => {
+                const trimmed = p.trim();
+                if (trimmed) paths.push(trimmed);
+            });
+        }
+    });
+
+    if (!paths.length) {
+        showToast('No downloaded documents found. Run a scrape first.', 'warning');
+        return;
+    }
+
+    try {
+        const res = await fetch('/api/download-zip', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'x-api-key': 'test_key_123' },
+            body: JSON.stringify({ paths })
+        });
+
+        if (!res.ok) {
+            const err = await res.json().catch(() => ({}));
+            throw new Error(err.detail || 'Download failed');
+        }
+
+        // Trigger file download
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'tender-documents.zip';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        showToast(`Downloaded ${paths.length} documents as ZIP.`, 'success');
+    } catch (err) {
+        showToast(`ZIP download failed: ${err.message}`, 'error');
+    }
+}
+
+// ─── Upload / Analyze (preserved from original) ───
+async function uploadTender() {
+    const fileInput = document.getElementById("pdfFile");
+    const companyProfile = document.getElementById("companyProfile").value;
+    const responseBox = document.getElementById("responseBox");
+
+    if (!fileInput.files.length) {
+        showToast("Please select a PDF file.", "warning");
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+    formData.append("company_profile", companyProfile);
+
+    try {
+        responseBox.textContent = "Uploading...";
+        const response = await fetch("/api/upload", {
+            method: "POST",
+            headers: { "x-api-key": "test_key_123" },
+            body: formData
+        });
+        const data = await response.json();
+        responseBox.textContent = JSON.stringify(data, null, 2);
+        showToast("Analysis complete.", "success");
+    } catch (error) {
+        responseBox.textContent = error;
+        showToast("Upload failed.", "error");
+    }
+}
+
+// ─── Helpers ───
+function escapeHtml(text) {
+    if (!text) return '';
+    const d = document.createElement('div');
+    d.textContent = text;
+    return d.innerHTML;
+}
+</script>
+
+</body>
+</html>

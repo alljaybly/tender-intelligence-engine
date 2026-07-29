@@ -1,0 +1,32 @@
+# ============================================================
+# docker-compose.yml — Local development & testing
+# Use this to run the API locally during development.
+#
+# Usage:
+# docker compose up -d          # Start in background
+# docker compose up -d --build  # Rebuild and start
+# docker compose down           # Stop and remove container
+# docker compose logs -f        # Follow logs
+# ============================================================
+
+version: "3.9"
+
+services:
+  tender-engine-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tender-engine-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 15s
+      retries: 3

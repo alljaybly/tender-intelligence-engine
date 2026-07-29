@@ -1,0 +1,73 @@
+# ============================================================
+# .dockerignore — Exclude unnecessary files from Docker context
+#   Everything listed here is SKIPPED when building the Docker
+#   image. This keeps the image small and avoids sending huge
+#   files (like the Python virtual env, node_modules, etc.)
+#   to the Docker daemon.
+# ============================================================
+
+# Git
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Local virtual environment / installed packages
+venv/
+.venv/
+package/           # <-- HUGE: contains all pip-installed packages (hundreds of MB)
+lambda_package.zip
+
+# Environment variables (never ship secrets!)
+.env
+*.env.local
+*.env.*
+
+# Database files (they stay local)
+*.db
+*.sqlite
+*.sqlite3
+
+# Node (frontend build artifacts)
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local dev / temp files
+temp_downloads/
+downloads/
+storage/
+.wdm/
+.chromedriver/
+
+# Scraper / test outputs
+scraper_output.txt
+test_cleaning.txt
+large.txt
+broken.pdf
+fake.pdf
+
+# Logs
+*.log
+
+# Data folder (SQLite DB, generated outputs)
+# data/ is EXCLUDED from the image — it's mounted as a volume at runtime
+data/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Note: static/ is NOT excluded — the API serves index.html from it
+# Note: screenshots/ is NOT excluded (small, might be useful)

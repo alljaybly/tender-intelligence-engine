@@ -1,0 +1,218 @@
+{
+  "jurisdiction": "South Africa",
+  "iso_code": "ZA",
+  "default_currency": "ZAR",
+  "currencies": ["ZAR", "USD", "EUR", "GBP", "AUD", "CAD"],
+  "required_documents": [
+    {
+      "id": "sbd1",
+      "name": "SBD 1 — Invitation to Bid",
+      "detect_keywords": ["sbd1", "sbd 1", "invitation to bid"],
+      "severity": "critical"
+    },
+    {
+      "id": "sbd2",
+      "name": "SBD 2 — Tax Clearance Certificate",
+      "detect_keywords": ["sbd2", "sbd 2", "tax clearance"],
+      "severity": "critical"
+    },
+    {
+      "id": "sbd3",
+      "name": "SBD 3 — Declaration of Interest",
+      "detect_keywords": ["sbd3", "sbd 3", "declaration of interest"],
+      "severity": "critical"
+    },
+    {
+      "id": "sbd4",
+      "name": "SBD 4 — Bidders Past SCM Practice",
+      "detect_keywords": ["sbd4", "sbd 4", "past scm practice"],
+      "severity": "critical"
+    },
+    {
+      "id": "sbd5",
+      "name": "SBD 5 — Preference Points Claim",
+      "detect_keywords": ["sbd5", "sbd 5", "preference points"],
+      "severity": "critical"
+    },
+    {
+      "id": "sbd6",
+      "name": "SBD 6 — Local Content Declaration",
+      "detect_keywords": ["sbd6", "sbd 6", "local content"],
+      "severity": "high"
+    },
+    {
+      "id": "sbd7",
+      "name": "SBD 7 — Contract Form",
+      "detect_keywords": ["sbd7", "sbd 7", "contract form"],
+      "severity": "critical"
+    },
+    {
+      "id": "sbd8",
+      "name": "SBD 8 — Bidders Declaration",
+      "detect_keywords": ["sbd8", "sbd 8", "bidders declaration"],
+      "severity": "high"
+    },
+    {
+      "id": "sbd9",
+      "name": "SBD 9 — Joint Venture",
+      "detect_keywords": ["sbd9", "sbd 9", "joint venture"],
+      "severity": "high"
+    },
+    {
+      "id": "bid_document",
+      "name": "Bid Document / Tender Notice",
+      "detect_keywords": ["bid document", "tender notice", "tender document"],
+      "severity": "critical"
+    },
+    {
+      "id": "bill_of_quantities",
+      "name": "Bill of Quantities (BOQ)",
+      "detect_keywords": ["bill of quantities", "boq", "schedule of quantities"],
+      "severity": "critical"
+    },
+    {
+      "id": "specifications",
+      "name": "Technical Specifications",
+      "detect_keywords": ["specification", "technical spec", "scope of work"],
+      "severity": "high"
+    },
+    {
+      "id": "drawings",
+      "name": "Drawings / Plans",
+      "detect_keywords": ["drawing", "plan", "sketch", "layout"],
+      "severity": "medium"
+    },
+    {
+      "id": "company_profile",
+      "name": "Company Profile / Registration",
+      "detect_keywords": ["company profile", "registration", "company registration"],
+      "severity": "high"
+    },
+    {
+      "id": "financial_statements",
+      "name": "Financial Statements",
+      "detect_keywords": ["financial statement", "audited", "balance sheet"],
+      "severity": "medium"
+    },
+    {
+      "id": "letter_of_goodstanding",
+      "name": "Letter of Goodstanding",
+      "detect_keywords": ["goodstanding", "good standing", "clearance"],
+      "severity": "high"
+    },
+    {
+      "id": "insurance_certificate",
+      "name": "Insurance Certificate",
+      "detect_keywords": ["insurance", "public liability", "professional indemnity"],
+      "severity": "medium"
+    }
+  ],
+  "required_fields": [
+    {
+      "field": "detected_sector",
+      "label": "Sector",
+      "weight": 0.2
+    },
+    {
+      "field": "detected_duration_months",
+      "label": "Duration",
+      "weight": 0.15
+    },
+    {
+      "field": "detected_locations",
+      "label": "Location(s)",
+      "weight": 0.15
+    },
+    {
+      "field": "boq_items",
+      "label": "Bill of Quantities",
+      "weight": 0.25
+    },
+    {
+      "field": "pricing_result",
+      "label": "Pricing Calculation",
+      "weight": 0.15
+    },
+    {
+      "field": "detected_workforce",
+      "label": "Workforce Data",
+      "weight": 0.1
+    }
+  ],
+  "document_patterns": [
+    {
+      "id": "submission_letter",
+      "keywords": ["submission letter", "covering letter", "letter of submission"]
+    },
+    {
+      "id": "sbd_form",
+      "keywords": ["sbd", "standard bidding document"]
+    },
+    {
+      "id": "tax_clearance",
+      "keywords": ["tax clearance", "tax certificate", "tax pin"]
+    },
+    {
+      "id": "company_registration",
+      "keywords": ["company registration", "registration certificate", "ck document"]
+    },
+    {
+      "id": "bbbeee_certificate",
+      "keywords": ["bbbee", "b-bbee", "broad-based black", "empowerment", "level 1", "level 2"]
+    },
+    {
+      "id": "bid_guarantee",
+      "keywords": ["bid guarantee", "bid bond", "tender guarantee"]
+    },
+    {
+      "id": "proof_of_address",
+      "keywords": ["proof of address", "utility bill", "municipal account"]
+    },
+    {
+      "id": "id_document",
+      "keywords": ["id document", "identity document", "passport", "copy of id"]
+    },
+    {
+      "id": "declaration_of_interest",
+      "keywords": ["declaration of interest", "conflict of interest"]
+    }
+  ],
+  "readiness_weights": {
+    "extraction_quality": 0.15,
+    "entity_completeness": 0.2,
+    "boq_completeness": 0.2,
+    "pricing_availability": 0.2,
+    "workforce_availability": 0.1,
+    "document_integrity": 0.15
+  },
+  "business_hours": {
+    "monday": "08:00-17:00",
+    "tuesday": "08:00-17:00",
+    "wednesday": "08:00-17:00",
+    "thursday": "08:00-17:00",
+    "friday": "08:00-17:00",
+    "saturday": "closed",
+    "sunday": "closed",
+    "timezone": "Africa/Johannesburg"
+  },
+  "contact": {
+    "email": "tenderengine@zohomail.com",
+    "phone": "+27 83 478 2235",
+    "address": {
+      "line1": "12 Claasens Street",
+      "line2": "Bishop Lavis",
+      "city": "Cape Town",
+      "province": "Western Cape",
+      "postal_code": "7490",
+      "country": "South Africa"
+    }
+  },
+  "document_checklist": [
+    ["Tax Clearance Certificate", ["tax clearance", "tax certificate", "tax pin", "sars"]],
+    ["CSD Registration (Central Supplier Database)", ["csd", "central supplier database", "supplier database"]],
+    ["CIDB Registration", ["cidb", "construction industry development board"]],
+    ["B-BBEE Certificate / Affidavit", ["bbbee", "b-bbee", "broad-based black", "empowerment", "level 1", "level 2"]],
+    ["Proof of Banking Details", ["banking details", "bank confirmation", "bank letter", "proof of bank"]],
+    ["Signed Declaration of Interest", ["declaration of interest", "conflict of interest", "sbd 3"]]
+  ]
+}

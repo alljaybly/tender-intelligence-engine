@@ -1,0 +1,539 @@
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 1
+TENDER COMPLETION GUIDE
+Practical instruction manual for a first-time contractor preparing the final tender submission.
+Use this guide to finish the work that still remains before submission. It does not repeat the roadmap, audit,
+readiness report, or submission letter.
+Guide Item
+Value
+Document
+REQ00529 ELECTRICAL SERVICES.pdf
+Jurisdiction
+International / General
+Purpose
+Completion actions, missing items, document pack checks, and submission readiness
+Version
+3.1.0
+Generated
+2026-07-16 22:03
+ PARTIALLY READY
+ You have enough to move forward, but some important gaps still need attention before submission.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 2
+1. Document Navigation by Section
+Detected document sections are listed below so reviewers can navigate the tender structure quickly.
+Section
+Heading
+Page
+Confidence
+Forms
+RETURNABLE DOCUMENTS
+1
+High
+Submission
+Requirements
+RETURNABLE DOCUMENTS
+1
+High
+Evaluation Criteria
+TECHNICAL EVALUATION CRITERIA
+1
+High
+Specifications
+TERMS OF REFERENCE
+3
+High
+Specifications
+SCOPE OF WORK
+3
+High
+Submission
+Requirements
+PROPOSAL REQUIREMENTS
+3
+High
+Award Criteria
+Preference Point System
+16
+High
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 3
+1. Completion Status
+ PARTIALLY READY
+ You have enough to move forward, but some important gaps still need attention before submission.
+Next best action: Complete the missing information and document checklist before final pricing sign-off.
+Submission Progress Meter
+■■■■■■■■■■ 66.7%
+18 of 27 Required Fields Completed | Missing information items: 0
+Indicator
+Current Position
+Information readiness
+Partial
+Pricing available
+Yes
+BOQ available
+Yes
+Final pack stage
+Still in completion phase
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 4
+2. Verified Extracted Information
+Each extracted value below includes where it was found, how confident the extraction is, and whether it should be
+verified before submission.
+Field
+Extracted Value
+Verified From
+Tender Number
+SAHPRA2026/ PROVISION OF AN ELE
+Verified From: Document header Page: Unknown
+Confidence: High Evidence: SAHPRA2026/
+PROVISION OF AN ELE
+Employer / Procuring Entity
+SUPPLIER INFORMATION NAME OF
+BIDDER
+Verified From: Document body Page: Unknown
+Confidence: High Evidence: SUPPLIER
+INFORMATION NAME OF BIDDER
+Project Title
+REQ00529 ELECTRICAL SERVICES
+Verified From: Document title Page: Unknown
+Confidence: Missing
+Sector
+electrical
+Verified From: Document body Page: 1 Confidence:
+High Evidence: Ref no: SAHPRA2026/ PROVISION
+OF AN ELECTRICAL CONTRACTOR FOR (AS
+Currency
+ZAR
+Verified From: Pricing / contract value context Page:
+1 Confidence: High Evidence: ...the 80/20 system
+for requirements with a Rand value of up to R50 000
+000 (all applicable taxes included); and - the 90/10
+sys...
+Contract Duration
+21 April 2026
+Verified From: Document body Page: Unknown
+Confidence: High Evidence: BID NUMBER:
+OFFICES /REQ00529 CLOSING DATE: 21 April
+2026 TIME: 16:00
+Location(s)
+western_cape, national
+Verified From: Document body Page: Unknown
+Confidence: Medium Evidence: Detected locations:
+western_cape, national
+BOQ Items
+item_count: 28; section_count: 2;
+subsection_count: 0; hierarchy_levels: 1; ...
+Verified From: BOQ tables Page: Unknown
+Confidence: High Evidence: 14 BOQ items
+extracted
+Pricing Calculation
+Calculated
+Verified From: BOQ summary Page: Unknown
+Confidence: Missing
+Workforce Requirements
+Civil, Electrical
+Verified From: BOQ / scope of work Page: Unknown
+Confidence: High Evidence: Work categories
+inferred from trade summary: Civil, Electrical
+Buyer
+that the claims are correct
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: proof to the satisfaction
+of the purchaser that the claims are correct;
+Procurement Authority
+SYSTEM SHOULD THIS DECLARATION
+PROVE TO BE FALSE
+Verified From: Document body Page: Unknown
+Confidence: High Evidence: SYSTEM SHOULD
+THIS DECLARATION PROVE TO BE FALSE
+Winning Bidder
+OF-SCM-01C_v4 Page 4 of 20
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: OF-SCM-01C_v4 Page
+4 of 20
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 5
+Field
+Extracted Value
+Verified From
+Legal Authority
+the Preferential Procurement
+Regulation,2022
+Verified From: RETURNABLE DOCUMENTS Page:
+1 Confidence: High Evidence: 5 Preferential
+Procurement Claim Form in terms of the Preferential
+Procurement Regulation,2022 –
+Country
+SOUTH AFRICA
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: SOUTH AFRICA FOR
+Yes No THE GOODS
+Tender Type
+REQUEST FOR QUOTATION
+Verified From: Document body Page: 1 Confidence:
+High Evidence: OF-SCM-01C REQUEST FOR
+QUOTATION
+Procedure
+ENQUIRIES MAY BE DIRECTED TO
+TECHNICAL ENQUIRIES MAY BE
+DIRECTED TO
+Verified From: Preference Point System Page: 16
+Confidence: High Evidence: BIDDING
+PROCEDURE ENQUIRIES MAY BE DIRECTED
+TO TECHNICAL ENQUIRIES MAY BE DIRECTED
+TO:
+Procurement Method
+REQUEST FOR QUOTATION
+Verified From: Document body Page: 1 Confidence:
+High Evidence: OF-SCM-01C REQUEST FOR
+QUOTATION
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 6
+Confidence Summary
+The confidence scores below reflect how much of each category has been successfully extracted, calculated, or
+verified from the uploaded tender documents.
+Metadata Confidence
+■■■■■■■■■■ 0%
+ 0%
+ 
+BOQ Confidence
+■■■■■■■■■■ 93%
+93%
+Pricing Confidence
+■■■■■■■■■■ 100%
+100%
+Compliance Confidence
+■■■■■■■■■■ 100%
+100%
+ Overall Extraction Confidence: 83% (High)
+ ■■■■■■■■■■ 83%
+ Based on weighted analysis of metadata (15%), BOQ completeness (30%), pricing availability (30%), and compliance field extraction
+ (25%).
+ 
+Category
+Score
+Metadata Confidence
+0%
+BOQ Confidence
+93%
+Pricing Confidence
+100%
+Compliance Confidence
+100%
+Overall Extraction Confidence
+83%
+Extraction Confidence Summary
+High Confidence
+Medium Confidence
+Low Confidence
+Missing
+17
+3
+0
+13
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 7
+Estimated Completion
+These estimates help you plan how much time to allocate before the submission deadline.
+Metric
+Value
+Completed tasks
+15 of 15
+Remaining items
+0 information gap(s) to resolve
+Estimated remaining work
+0–1 hour (final checks only)
+Complexity level
+ Low
+ 
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 8
+4. Missing Information
+This section explains each information gap in plain language so a contractor knows exactly what is still missing,
+where to find it, who normally supplies it, and how to finish it.
+No unresolved information gaps were detected in the current processing result.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 9
+5. Missing Documents
+These are the supporting documents a contractor normally has to attach separately. They are treated as pending
+until someone on your team has physically checked them.
+Priority
+Document
+Why It Appears Missing
+Where to Get It
+Who Provides It
+How to Complete
+It
+●
+Critical
+Company
+Registration
+Certificate
+Separate company
+attachment — not extracted
+from the tender notice
+itself.
+Your company
+registry
+Company
+secretary, admin
+team, or director
+Use the latest official
+record and verify the
+legal entity details
+match the tender
+forms.
+●
+Critical
+Tax Registration /
+Clearance
+Separate company
+attachment — not extracted
+from the tender notice
+itself.
+Tax authority
+portal or tax
+adviser
+Finance team or
+tax adviser
+Confirm the
+document is current
+and valid for the
+tender closing date.
+● High
+Insurance
+Certificates
+Separate company
+attachment — not extracted
+from the tender notice
+itself.
+Broker or insurer
+Finance team or
+broker
+Check policy limits,
+expiry dates, and
+insured name match
+the tender
+requirements.
+●
+Medium
+Bank Reference
+Letter
+Separate company
+attachment — not extracted
+from the tender notice
+itself.
+Your bank
+Finance team
+Request a current
+letter if the tender
+asks for financial
+standing or bank
+details.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 10
+6. Recommended Workflow
+Follow this sequence to move from partial tender data to a properly assembled submission pack.
+1. Read the tender instructions first
+Before filling in anything, confirm closing time, submission method, file order, compulsory forms, and whether hard
+copy or portal upload rules apply.
+2. Lock the pricing basis
+Work only from the final issued BOQ and addenda. Make sure the estimator and signatory are working from the
+same version.
+3. Collect company compliance documents
+Pull tax, registration, empowerment, insurance, banking, and any sector-specific certificates before you prepare the
+final pack.
+4. Complete tender forms line by line
+Fill every required field. If something does not apply, write 'N/A' rather than leaving blanks that can be treated as
+omissions.
+5. Verify signatures and authority
+Check who must sign each form, declaration, pricing page, and cover letter. Make sure the signatory has authority
+to bind the company.
+6. Perform a disqualification check
+Run through the mistakes list and checklist in this guide before you print, scan, or upload anything.
+7. Submit early and keep proof
+Finish early enough to recover from portal errors, rejected files, or scanner issues, and save proof of submission
+immediately.
+8. Do not finalise until the gaps are closed
+This guide still shows open work. Treat the missing information and missing documents sections as your live punch
+list.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 11
+7. Printable Submission Checklist
+Print this page and tick every box before submission. This is meant for desk use during the final pack review.
+■ Tender instructions reviewed in full
+■ Closing date, closing time, and submission address/portal rechecked
+■ Final BOQ version confirmed against all addenda
+■ Pricing checked for arithmetic, provisional sums, and VAT
+■ Currency confirmed (ZAR)
+■ Mandatory forms completed with no blank required fields
+■ Company registration details match supporting documents exactly
+■ Mandatory compliance documents attached and still valid
+■ Every required signature, initial, and date completed
+■ Final submission pack assembled in the required order
+■ Proof of submission plan ready (portal receipt, courier slip, or hand-delivery register)
+Tip: do this check with the final printed or uploaded pack in front of you, not from memory.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 12
+8. Common Disqualification Mistakes
+These are the mistakes that regularly sink otherwise good bids. Use them as a last-minute guardrail.
+Mistake
+How to Avoid It
+Blank form fields
+Write a value or 'N/A' everywhere the form expects a response.
+Unsigned declarations
+Confirm the authorised signatory signs every required declaration.
+Wrong file order
+Compile documents in the exact order requested by the tender instructions.
+Old certificates
+Check all compliance documents are still current on closing date.
+Last-minute submission
+Finish the upload early enough to fix rejected files or portal problems.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 13
+9. Helpful Tender Tips
+Tip
+Practical Advice
+1
+Keep a live folder for standard company documents so you do not scramble for certificates every time a tender closes.
+2
+Name files in submission order before you upload them. It reduces mistakes when portals show only filenames.
+3
+Have a second person check totals, VAT, signatures, and document order. Fresh eyes catch expensive misses.
+4
+Where the tender is silent, do not guess. Ask the tender contact in writing before closing date.
+5
+Finish scanning and merging PDFs early. File-size, password, and upside-down scan issues waste closing-day time.
+6
+Keep proof of submission, the final pack, and the pricing backup in one place immediately after submission.
+
+Tender Completion Guide
+Evidence-Based Document Processing
+Job: 62e0344d63bf4c94
+v3.1.0
+Tender Engine
+Evidence-Based Document Processing
+v3.1.0 | Generated: 2026-07-16  22:03
+Page 14
+10. Final Submission Readiness
+Use this final sign-off grid to decide whether you are truly ready to submit today.
+Readiness Question
+Current
+Answer
+What It Means
+Do you have the final BOQ that will be submitted?
+✓ Complete
+Submission should stop if this answer is 'No'.
+Has the pricing been completed and reviewed?
+✓ Complete
+Do not rely on draft figures for final submission.
+Is the contract duration confirmed from the tender
+documents?
+✓ Complete
+Duration affects pricing, programme, and resources.
+Is the project sector/work scope understood clearly?
+✓ Complete
+The wrong scope assumption can invalidate pricing and
+compliance.
+Have all supporting company documents been
+physically checked?
+■ Pending
+This guide cannot verify separate attachments
+automatically.
+Are all signatures and dates complete?
+■ Pending
+Final manual check required before upload/printing.
+Do not submit while any answer above is still 'No' on a core tender item or 'Pending' on a mandatory
+attachment/signature check.
+ No information has been invented. Verify all details before submission.
+ 

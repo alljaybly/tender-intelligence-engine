@@ -1,0 +1,22 @@
+{
+  "title": "Tender Engine",
+  "subtitle": "Processing Dashboard",
+  "processing": "Processing",
+  "processing_status": "Status: {status}",
+  "processing_progress": "Processing: {progress}",
+  "select_job": "Select a job from the history to view its result.",
+  "empty_title": "Tender Processing Dashboard",
+  "empty_description": "Upload a tender document to get started. Once processed, you'll see extracted data including sector, duration, locations, BOQ items, and pricing.",
+  "step_1": "Step 1",
+  "step_2": "Step 2",
+  "step_3": "Step 3",
+  "step_1_desc": "Upload document",
+  "step_2_desc": "Auto-processing",
+  "step_3_desc": "View results",
+  "heads_up": "Heads up:",
+  "cold_start_warning": "This app runs on free Render infrastructure. The first request each session may take ~30s for the backend to wake up — after that, processing runs at normal speed.",
+  "about_tool": "About this tool:",
+  "about_tool_desc": "I've built this to be a partner to the human expert. It does the hard work, but you're still the one in the driver's seat. Always review extracted data carefully before using it in production decisions.",
+  "loading_result": "Loading Result",
+  "error": "Error"
+}

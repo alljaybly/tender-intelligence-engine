@@ -1,0 +1,427 @@
+{
+  "job_id": "e5ff552e00e94ac1aceac71e319227db",
+  "filename": "REQ00529 ELECTRICAL SERVICES.pdf",
+  "status": "completed",
+  "generated_at": "2026-07-16T21:55:59.724024",
+  "jurisdiction": "South Africa",
+  "jurisdiction_assumed": false,
+  "readiness_score": {
+    "overall_score": 32.8,
+    "base_score": 59.8,
+    "label": "low",
+    "label_description": "Significant gaps detected. Review and rework strongly recommended.",
+    "categories": {
+      "extraction_quality": {
+        "score": 100.0,
+        "weight": 0.15,
+        "label": "high"
+      },
+      "entity_completeness": {
+        "score": 100.0,
+        "weight": 0.2,
+        "label": "high"
+      },
+      "boq_completeness": {
+        "score": 10.0,
+        "weight": 0.2,
+        "label": "critical"
+      },
+      "pricing_availability": {
+        "score": 30.0,
+        "weight": 0.2,
+        "label": "low"
+      },
+      "workforce_availability": {
+        "score": 100.0,
+        "weight": 0.1,
+        "label": "high"
+      },
+      "document_integrity": {
+        "score": 45.0,
+        "weight": 0.15,
+        "label": "low"
+      }
+    },
+    "breakdown": {
+      "extraction_quality": 100.0,
+      "entity_completeness": 100.0,
+      "boq_completeness": 10.0,
+      "pricing_availability": 30.0,
+      "workforce_availability": 100.0,
+      "document_integrity": 45.0
+    },
+    "evidence_quality": {
+      "deductions": [
+        {
+          "field": "project_title",
+          "label": "Project Title",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing Project Title"
+        },
+        {
+          "field": "estimated_contract_value",
+          "label": "Estimated Contract Value",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing Estimated Contract Value"
+        },
+        {
+          "field": "location",
+          "label": "Location",
+          "confidence": "Medium",
+          "deduction": 1,
+          "reason": "Medium confidence Location"
+        },
+        {
+          "field": "submission_method",
+          "label": "Submission Method",
+          "confidence": "Medium",
+          "deduction": 1,
+          "reason": "Medium confidence Submission Method"
+        },
+        {
+          "field": "mandatory_documents",
+          "label": "Mandatory Documents",
+          "confidence": "Medium",
+          "deduction": 1,
+          "reason": "Medium confidence Mandatory Documents"
+        },
+        {
+          "field": "cidb_grade",
+          "label": "CIDB Grade",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing CIDB Grade"
+        },
+        {
+          "field": "compulsory_briefing",
+          "label": "Compulsory Briefing",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing Compulsory Briefing"
+        }
+      ],
+      "total_deduction": 27,
+      "confidence_counts": {
+        "High": 8,
+        "Medium": 3,
+        "Low": 0,
+        "Missing": 4
+      },
+      "tracked_field_count": 15
+    },
+    "calculation": {
+      "base_score": 59.8,
+      "deductions": [
+        {
+          "field": "project_title",
+          "label": "Project Title",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing Project Title"
+        },
+        {
+          "field": "estimated_contract_value",
+          "label": "Estimated Contract Value",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing Estimated Contract Value"
+        },
+        {
+          "field": "location",
+          "label": "Location",
+          "confidence": "Medium",
+          "deduction": 1,
+          "reason": "Medium confidence Location"
+        },
+        {
+          "field": "submission_method",
+          "label": "Submission Method",
+          "confidence": "Medium",
+          "deduction": 1,
+          "reason": "Medium confidence Submission Method"
+        },
+        {
+          "field": "mandatory_documents",
+          "label": "Mandatory Documents",
+          "confidence": "Medium",
+          "deduction": 1,
+          "reason": "Medium confidence Mandatory Documents"
+        },
+        {
+          "field": "cidb_grade",
+          "label": "CIDB Grade",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing CIDB Grade"
+        },
+        {
+          "field": "compulsory_briefing",
+          "label": "Compulsory Briefing",
+          "confidence": "Missing",
+          "deduction": 6,
+          "reason": "Missing Compulsory Briefing"
+        }
+      ],
+      "total_deduction": 27,
+      "final_score": 32.8
+    }
+  },
+  "missing_information": {
+    "count": 0,
+    "total_required": 6,
+    "completeness_percentage": 100.0,
+    "missing_fields": [],
+    "summary": "0 of 6 required fields are missing (0.0% incomplete)."
+  },
+  "missing_documents": {
+    "total_required": 17,
+    "detected_count": 17,
+    "missing_count": 6,
+    "detected": [
+      {
+        "id": "sbd1",
+        "name": "SBD 1 \u2014 Invitation to Bid",
+        "status": "detected"
+      },
+      {
+        "id": "sbd3",
+        "name": "SBD 3 \u2014 Declaration of Interest",
+        "status": "detected"
+      },
+      {
+        "id": "sbd4",
+        "name": "SBD 4 \u2014 Bidders Past SCM Practice",
+        "status": "detected"
+      },
+      {
+        "id": "sbd5",
+        "name": "SBD 5 \u2014 Preference Points Claim",
+        "status": "detected"
+      },
+      {
+        "id": "sbd6",
+        "name": "SBD 6 \u2014 Local Content Declaration",
+        "status": "detected"
+      },
+      {
+        "id": "sbd7",
+        "name": "SBD 7 \u2014 Contract Form",
+        "status": "detected"
+      },
+      {
+        "id": "sbd9",
+        "name": "SBD 9 \u2014 Joint Venture",
+        "status": "detected"
+      },
+      {
+        "id": "bid_document",
+        "name": "Bid Document / Tender Notice",
+        "status": "detected"
+      },
+      {
+        "id": "specifications",
+        "name": "Technical Specifications",
+        "status": "detected"
+      },
+      {
+        "id": "company_profile",
+        "name": "Company Profile / Registration",
+        "status": "detected"
+      },
+      {
+        "id": "insurance_certificate",
+        "name": "Insurance Certificate",
+        "status": "detected"
+      },
+      {
+        "id": "sbd_form",
+        "name": "Standard Bidding Document (SBD) Form",
+        "status": "detected"
+      },
+      {
+        "id": "tax_clearance",
+        "name": "Tax Clearance Certificate",
+        "status": "detected"
+      },
+      {
+        "id": "company_registration",
+        "name": "Company Registration Document",
+        "status": "detected"
+      },
+      {
+        "id": "bbbeee_certificate",
+        "name": "B-BBEE Certificate / Affidavit",
+        "status": "detected"
+      },
+      {
+        "id": "id_document",
+        "name": "ID Document / Passport",
+        "status": "detected"
+      },
+      {
+        "id": "declaration_of_interest",
+        "name": "Declaration of Interest",
+        "status": "detected"
+      }
+    ],
+    "missing": [
+      {
+        "id": "sbd2",
+        "name": "SBD 2 \u2014 Tax Clearance Certificate",
+        "status": "missing",
+        "severity": "critical"
+      },
+      {
+        "id": "sbd8",
+        "name": "SBD 8 \u2014 Bidders Declaration",
+        "status": "missing",
+        "severity": "high"
+      },
+      {
+        "id": "bill_of_quantities",
+        "name": "Bill of Quantities (BOQ)",
+        "status": "missing",
+        "severity": "critical"
+      },
+      {
+        "id": "drawings",
+        "name": "Drawings / Plans",
+        "status": "missing",
+        "severity": "medium"
+      },
+      {
+        "id": "financial_statements",
+        "name": "Financial Statements",
+        "status": "missing",
+        "severity": "medium"
+      },
+      {
+        "id": "letter_of_goodstanding",
+        "name": "Letter of Goodstanding",
+        "status": "missing",
+        "severity": "high"
+      }
+    ],
+    "summary": "17 of 17 required documents detected. 6 document(s) potentially missing."
+  },
+  "confidence_summary": {
+    "overall_score": 0.4,
+    "label": "low",
+    "summary_text": "Low confidence. Significant data quality or completeness issues were detected. Use this report as a starting point for manual review.",
+    "breakdown": {
+      "extraction": 1.0,
+      "boq": 0.1,
+      "pricing": 0.3,
+      "ocr_penalty": 0.0,
+      "missing_penalty": 0.0
+    },
+    "levels": {
+      "extraction": "high",
+      "boq": "critical",
+      "pricing": "low"
+    }
+  },
+  "risk_summary": {
+    "overall_risk_level": "medium",
+    "overall_assessment": "Moderate risks detected. Review and address high-severity items before submission.",
+    "risk_count": 3,
+    "critical_count": 0,
+    "high_count": 1,
+    "medium_count": 2,
+    "low_count": 0,
+    "risks": [
+      {
+        "category": "pipeline",
+        "severity": "high",
+        "title": "Stage Failed: Numeric Classification",
+        "description": "The 'Numeric Classification' processing stage did not complete successfully.",
+        "actionable": true
+      },
+      {
+        "category": "data_quality",
+        "severity": "medium",
+        "title": "14 BOQ Items Missing Rates",
+        "description": "14 of 14 items have no rate data.",
+        "actionable": true
+      },
+      {
+        "category": "pipeline",
+        "severity": "medium",
+        "title": "81 Processing Warnings",
+        "description": "There are 81 warnings from the processing pipeline. Review for details.",
+        "actionable": true
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "priority": "high",
+      "category": "document",
+      "title": "Obtain: SBD 2 \u2014 Tax Clearance Certificate",
+      "message": "The document 'SBD 2 \u2014 Tax Clearance Certificate' was not detected in the submission. This may be required for a complete bid response.",
+      "action": "obtain_document"
+    },
+    {
+      "priority": "high",
+      "category": "document",
+      "title": "Obtain: SBD 8 \u2014 Bidders Declaration",
+      "message": "The document 'SBD 8 \u2014 Bidders Declaration' was not detected in the submission. This may be required for a complete bid response.",
+      "action": "obtain_document"
+    },
+    {
+      "priority": "high",
+      "category": "document",
+      "title": "Obtain: Bill of Quantities (BOQ)",
+      "message": "The document 'Bill of Quantities (BOQ)' was not detected in the submission. This may be required for a complete bid response.",
+      "action": "obtain_document"
+    },
+    {
+      "priority": "high",
+      "category": "document",
+      "title": "Obtain: Drawings / Plans",
+      "message": "The document 'Drawings / Plans' was not detected in the submission. This may be required for a complete bid response.",
+      "action": "obtain_document"
+    },
+    {
+      "priority": "high",
+      "category": "document",
+      "title": "Obtain: Financial Statements",
+      "message": "The document 'Financial Statements' was not detected in the submission. This may be required for a complete bid response.",
+      "action": "obtain_document"
+    },
+    {
+      "priority": "high",
+      "category": "document",
+      "title": "Obtain: Letter of Goodstanding",
+      "message": "The document 'Letter of Goodstanding' was not detected in the submission. This may be required for a complete bid response.",
+      "action": "obtain_document"
+    },
+    {
+      "priority": "high",
+      "category": "boq",
+      "title": "Complete Bill of Quantities",
+      "message": "The Bill of Quantities is incomplete. Ensure all line items have descriptions, rates, and amounts filled in.",
+      "action": "complete_boq"
+    }
+  ],
+  "dashboard": {
+    "readiness_score": 32.8,
+    "readiness_label": "low",
+    "risk_level": "medium",
+    "risk_count": 3,
+    "missing_fields_count": 0,
+    "missing_documents_count": 6,
+    "confidence_label": "low",
+    "status": "completed",
+    "has_pricing": true,
+    "has_boq": true,
+    "has_workforce": true
+  },
+  "raw": {
+    "extraction_method": "pipeline_v2",
+    "pipeline_version": "v2",
+    "text_length": 32694
+  }
+}

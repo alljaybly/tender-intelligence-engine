@@ -1,0 +1,8 @@
+{
+  "_meta": {
+    "language": "French",
+    "status": "reserved",
+    "implemented": false,
+    "notes": "Reserved for future professional translation. All strings fall back to English until implemented."
+  }
+}

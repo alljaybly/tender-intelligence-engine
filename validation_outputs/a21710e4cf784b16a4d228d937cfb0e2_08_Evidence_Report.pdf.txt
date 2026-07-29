@@ -1,0 +1,83 @@
+Tender Engine | Evidence Report
+Job: a21710e4cf78...
+Page 1
+Generated: 2026-07-16 21:46
+v2.0.0
+Processing Audit
+Metric
+Value
+PDF Parsed
+Yes (20 pages)
+Pages Parsed
+20
+OCR Used
+No
+OCR Skipped Reason
+Standard text extraction successfully retrieved document content — OCR was not r
+Languages Detected
+English
+Currency Detected
+ZAR
+Currency Method
+symbol_with_amount
+Country Detected
+western_cape
+BOQ Tables Found
+1
+BOQ Tables Accepted
+1
+BOQ Tables Rejected
+0
+Items Extracted
+14
+Entities Classified
+0
+Processing Time
+Pipeline Version
+v2
+Extraction Version
+pipeline_v2
+Stages Completed
+6
+Stages Failed
+1
+Accepted Evidence
+Field
+Value
+Method
+Confidence
+Sector
+electrical
+Sector keyword analysis
+Unknown
+Contract Duration
+36 months
+Duration pattern extraction
+High
+Location(s)
+western_cape, national
+Location entity extraction
+Medium
+Currency
+ZAR
+Currency Engine — symbol_with_amount
+High
+BOQ Items
+14 line items
+BOQ Engine v2 — table extraction
+Low
+Pricing Calculation
+Calculated
+Deterministic pricing calculation
+Calculated
+Workforce Requirements
+6 workers
+Workforce estimation from BOQ
+Medium
+Project Schedule
+Detected
+Schedule pattern extraction
+Low
+Rejected Evidence
+Tender Number — No tender number detected in document header or metadata
+Employer / Procuring Entity — No employer/procuring entity detected

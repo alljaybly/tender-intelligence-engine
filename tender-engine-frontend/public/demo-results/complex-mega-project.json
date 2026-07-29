@@ -1,0 +1,78 @@
+{
+  "job_id": "demo-mega-003",
+  "status": "completed",
+  "filename": "National_Highway_Upgrade_RFP.pdf",
+  "completed_stages": ["extract_text", "detect_sector", "detect_duration", "detect_locations", "extract_workforce", "extract_schedule", "extract_boq", "pricing"],
+  "failed_stages": [],
+  "metadata": { "sector": "Infrastructure", "duration_months": 36, "locations": ["KwaZulu-Natal", "Durban", "Pietermaritzburg", "Eastern Cape"], "extraction_method": "hybrid", "pipeline_version": "v2.1.0" },
+  "detected_sector": "Infrastructure — National Road & Bridge Works",
+  "detected_duration_months": 36,
+  "detected_locations": ["KwaZulu-Natal", "Durban", "Pietermaritzburg", "Eastern Cape"],
+  "detected_workforce": {
+    "Civil Engineers": { "count": 25, "source": "extracted" },
+    "Structural Engineers": { "count": 10, "source": "extracted" },
+    "Site Managers": { "count": 15, "source": "extracted" },
+    "General Labour": { "count": 200, "source": "inferred" },
+    "Heavy Equipment Operators": { "count": 45, "source": "extracted" },
+    "Surveyors": { "count": 8, "source": "extracted" },
+    "Safety Officers": { "count": 12, "source": "extracted" },
+    "Bridge Construction Crew": { "count": 60, "source": "extracted" },
+    "total_personnel": 375
+  },
+  "detected_schedule": {
+    "start_date": "Q1 2027",
+    "phases": [
+      { "phase": "Detailed Design & Geotechnical Surveys", "duration": "6 months" },
+      { "phase": "Land Acquisition & Relocations", "duration": "4 months" },
+      { "phase": "Bridge Construction - North Section", "duration": "14 months" },
+      { "phase": "Road Pavement & Asphalt - Section A", "duration": "10 months" },
+      { "phase": "Road Pavement & Asphalt - Section B", "duration": "12 months" },
+      { "phase": "Interchange & Toll Plaza Construction", "duration": "8 months" },
+      { "phase": "Commissioning & Handover", "duration": "4 months" }
+    ]
+  },
+  "boq_items": [
+    { "item_no": "1.1", "description": "Geotechnical investigations and soil testing", "quantity": 1, "unit": "lot", "rate": 3200000, "amount": 3200000 },
+    { "item_no": "1.2", "description": "Detailed engineering design (road & bridge)", "quantity": 1, "unit": "lot", "rate": 8500000, "amount": 8500000 },
+    { "item_no": "2.1", "description": "Bridge foundation - pile caps and piers", "quantity": 4200, "unit": "m³", "rate": 3800, "amount": 15960000 },
+    { "item_no": "2.2", "description": "Bridge superstructure - precast segments", "quantity": 2400, "unit": "m³", "rate": 5200, "amount": 12480000 },
+    { "item_no": "3.1", "description": "Road excavation and subgrade preparation", "quantity": 180000, "unit": "m³", "rate": 95, "amount": 17100000 },
+    { "item_no": "3.2", "description": "G5 base course material", "quantity": 85000, "unit": "m³", "rate": 210, "amount": 17850000 },
+    { "item_no": "4.1", "description": "Asphalt base (60mm)", "quantity": 320000, "unit": "m²", "rate": 280, "amount": 89600000 },
+    { "item_no": "4.2", "description": "Asphalt wearing course (40mm)", "quantity": 320000, "unit": "m²", "rate": 350, "amount": 112000000 },
+    { "item_no": "5.1", "description": "Toll plaza construction - 4 lanes", "quantity": 1, "unit": "lot", "rate": 18500000, "amount": 18500000 },
+    { "item_no": "5.2", "description": "Interchange - grade separation structure", "quantity": 1, "unit": "lot", "rate": 42000000, "amount": 42000000 },
+    { "item_no": "6.1", "description": "Guardrails and safety barriers", "quantity": 48000, "unit": "m", "rate": 850, "amount": 40800000 },
+    { "item_no": "6.2", "description": "Road signage and intelligent transport systems", "quantity": 1, "unit": "lot", "rate": 12500000, "amount": 12500000 },
+    { "item_no": "7.1", "description": "Environmental mitigation measures", "quantity": 1, "unit": "lot", "rate": 4600000, "amount": 4600000 },
+    { "item_no": "7.2", "description": "Community liaison and stakeholder engagement", "quantity": 1, "unit": "lot", "rate": 2800000, "amount": 2800000 }
+  ],
+  "boq_confidence": "high",
+  "pricing_result": {
+    "total_boq_amount": 359600000,
+    "contingency_10_percent": 35960000,
+    "escalation_8_percent": 28768000,
+    "professional_fees": 17980000,
+    "total_estimated_amount": 442308000,
+    "currency": "ZAR",
+    "pricing_mode": "detailed_estimate",
+    "markups_applied": true,
+    "item_count": 14
+  },
+  "pricing_status": "completed",
+  "pricing_unavailable_reason": null,
+  "extraction_method": "hybrid",
+  "pipeline_version": "v2.1.0",
+  "warnings": [
+    "General labour and bridge crew count inferred — scaled to match project complexity",
+    "Some BOQ items had ambiguous units which were resolved using project context"
+  ],
+  "confidence_scores": {
+    "overall": 0.91,
+    "boq_extraction": 0.95,
+    "workforce": 0.82,
+    "sector": 0.97,
+    "pricing": 0.88
+  },
+  "executive_summary": "This is a large-scale national road and bridge upgrade project spanning two provinces. The N2 highway section between Durban and the Eastern Cape border requires major upgrades including a new bridge, toll plaza, and road widening.\n\nKey findings:\n• Sector: Infrastructure — National Road & Bridge Works\n• Project Duration: 36 months\n• Total BOQ Value: ZAR 359,600,000\n• Estimated Total (incl. contingency & fees): ZAR 442,308,000\n• Total Workforce Required: 375 personnel across 8 categories\n• 14 BOQ items extracted at high confidence\n• Overall Processing Confidence: 91%\n\nThis is an example of a complex multi-year mega-project with well-structured documentation. All stages completed successfully with high confidence across the board."
+}

@@ -1,0 +1,73 @@
+{
+  "job_id": "demo-scan-002",
+  "status": "partial_success",
+  "filename": "Old_Building_Refurb_Scanned.pdf",
+  "completed_stages": ["extract_text", "detect_sector", "detect_duration", "detect_locations", "extract_workforce", "extract_boq", "pricing"],
+  "failed_stages": ["extract_schedule"],
+  "metadata": { "sector": "Building Construction", "duration_months": 14, "locations": ["Western Cape", "Cape Town"], "extraction_method": "ocr", "pipeline_version": "v2.1.0" },
+  "detected_sector": "Building — Commercial Refurbishment",
+  "detected_duration_months": 14,
+  "detected_locations": ["Western Cape", "Cape Town"],
+  "detected_workforce": {
+    "Project Managers": { "count": 3, "source": "extracted" },
+    "Bricklayers": { "count": 18, "source": "extracted" },
+    "General Labour": { "count": 40, "source": "inferred" },
+    "Electricians": { "count": 10, "source": "extracted" },
+    "Plumbers": { "count": 6, "source": "extracted" },
+    "Painters": { "count": 12, "source": "extracted" },
+    "total_personnel": 89
+  },
+  "detected_schedule": {
+    "start_date": "Q3 2026",
+    "phases": [
+      { "phase": "Demolition & Strip-out", "duration": "2 months" },
+      { "phase": "Structural Repairs", "duration": "4 months" },
+      { "phase": "MEP Installations", "duration": "5 months" },
+      { "phase": "Finishing Works", "duration": "3 months" }
+    ]
+  },
+  "boq_items": [
+    { "item_no": "1.1", "description": "Demolition of internal walls and partitions", "quantity": 1, "unit": "lot", "rate": 280000, "amount": 280000 },
+    { "item_no": "1.2", "description": "Removal of existing floor finishes", "quantity": 2500, "unit": "m²", "rate": 45, "amount": 112500 },
+    { "item_no": "2.1", "description": "New drywall partitioning", "quantity": 1800, "unit": "m²", "rate": 320, "amount": 576000 },
+    { "item_no": "2.2", "description": "Suspended ceiling system", "quantity": 2200, "unit": "m²", "rate": 280, "amount": 616000 },
+    { "item_no": "3.1", "description": "Electrical rewiring and distribution board", "quantity": 1, "unit": "lot", "rate": 450000, "amount": 450000 },
+    { "item_no": "3.2", "description": "LED lighting installation", "quantity": 320, "unit": "units", "rate": 1850, "amount": 592000 },
+    { "item_no": "4.1", "description": "Plumbing and drainage upgrade", "quantity": 1, "unit": "lot", "rate": 385000, "amount": 385000 },
+    { "item_no": "4.2", "description": "New HVAC system installation", "quantity": 1, "unit": "lot", "rate": 1250000, "amount": 1250000 },
+    { "item_no": "5.1", "description": "Floor finishing - vinyl and carpet", "quantity": 2500, "unit": "m²", "rate": 195, "amount": 487500 },
+    { "item_no": "5.2", "description": "Painting works", "quantity": 4800, "unit": "m²", "rate": 85, "amount": 408000 },
+    { "item_no": "6.1", "description": "Fire detection and suppression system", "quantity": 1, "unit": "lot", "rate": 620000, "amount": 620000 },
+    { "item_no": "6.2", "description": "Access control and security system", "quantity": 1, "unit": "lot", "rate": 340000, "amount": 340000 }
+  ],
+  "boq_confidence": "medium",
+  "pricing_result": {
+    "total_boq_amount": 6067000,
+    "contingency_10_percent": 606700,
+    "escalation_8_percent": 485360,
+    "professional_fees": 303350,
+    "total_estimated_amount": 7462410,
+    "currency": "ZAR",
+    "pricing_mode": "detailed_estimate",
+    "markups_applied": true,
+    "item_count": 12
+  },
+  "pricing_status": "completed",
+  "pricing_unavailable_reason": null,
+  "extraction_method": "ocr",
+  "pipeline_version": "v2.1.0",
+  "warnings": [
+    "Document was scanned — OCR quality reduced some numeric values (medium confidence)",
+    "Schedule extraction failed due to handwritten dates in original document",
+    "Several item quantities have been estimated from image-based tables",
+    "Labour classification inferred from project scope, not explicitly listed"
+  ],
+  "confidence_scores": {
+    "overall": 0.72,
+    "boq_extraction": 0.76,
+    "workforce": 0.68,
+    "sector": 0.91,
+    "pricing": 0.71
+  },
+  "executive_summary": "This tender covers the commercial refurbishment of a 3-storey office building in Cape Town's CBD. The original document was a scanned PDF with moderate OCR quality.\n\nKey findings:\n• Sector: Building — Commercial Refurbishment\n• Project Duration: 14 months\n• Total BOQ Value: ZAR 6,067,000\n• Estimated Total (incl. contingency & fees): ZAR 7,462,410\n• Total Workforce Required: 89 personnel across 6 categories\n• BOQ Confidence: Medium (76%) — due to OCR limitations\n• Schedule extraction: FAILED — handwritten dates not readable\n• Overall Processing Confidence: 72%\n\n⚠️ This is an example of partial success. Despite OCR challenges, 6 of 7 stages completed. The failed schedule stage and lower confidence scores are clearly shown — no hidden failures."
+}

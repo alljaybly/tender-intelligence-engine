@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/*
+ * Scroll offset for hash-anchor sections — accounts for sticky header (~64px) + beta banner (~40px)
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 112px;
+}
+
+/* Fade-in animation used by the BackToTop floating button */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}

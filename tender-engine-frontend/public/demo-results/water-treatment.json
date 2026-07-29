@@ -1,0 +1,71 @@
+{
+  "job_id": "demo-water-004",
+  "status": "completed",
+  "filename": "Water_Treatment_Plant_Upgrade.pdf",
+  "completed_stages": ["extract_text", "detect_sector", "detect_duration", "detect_locations", "extract_workforce", "extract_schedule", "extract_boq", "pricing"],
+  "failed_stages": [],
+  "metadata": { "sector": "Water & Sanitation", "duration_months": 18, "locations": ["Mpumalanga", "Nelspruit", "White River"], "extraction_method": "hybrid", "pipeline_version": "v2.1.0" },
+  "detected_sector": "Water & Sanitation — Treatment Plant",
+  "detected_duration_months": 18,
+  "detected_locations": ["Mpumalanga", "Nelspruit", "White River"],
+  "detected_workforce": {
+    "Process Engineers": { "count": 5, "source": "extracted" },
+    "Mechanical Fitters": { "count": 15, "source": "extracted" },
+    "Electricians & Instrumentation": { "count": 12, "source": "extracted" },
+    "Pipe Fitters": { "count": 20, "source": "extracted" },
+    "General Labour": { "count": 50, "source": "inferred" },
+    "Welders": { "count": 8, "source": "extracted" },
+    "total_personnel": 110
+  },
+  "detected_schedule": {
+    "start_date": "Q4 2026",
+    "phases": [
+      { "phase": "Site preparation & temporary works", "duration": "2 months" },
+      { "phase": "Civil works & concrete structures", "duration": "6 months" },
+      { "phase": "Mechanical equipment installation", "duration": "5 months" },
+      { "phase": "Piping & electrical works", "duration": "4 months" },
+      { "phase": "Commissioning & testing", "duration": "3 months" }
+    ]
+  },
+  "boq_items": [
+    { "item_no": "1.1", "description": "Site clearing and temporary facilities", "quantity": 1, "unit": "lot", "rate": 1200000, "amount": 1200000 },
+    { "item_no": "2.1", "description": "Reinforced concrete sedimentation tanks", "quantity": 3200, "unit": "m³", "rate": 4200, "amount": 13440000 },
+    { "item_no": "2.2", "description": "Filter bed structures (rapid sand)", "quantity": 8, "unit": "units", "rate": 1850000, "amount": 14800000 },
+    { "item_no": "3.1", "description": "Raw water intake pumps (500kW)", "quantity": 3, "unit": "units", "rate": 2400000, "amount": 7200000 },
+    { "item_no": "3.2", "description": "Chemical dosing system (polymer + chlorine)", "quantity": 1, "unit": "lot", "rate": 3800000, "amount": 3800000 },
+    { "item_no": "4.1", "description": "HDPE piping DN400 - DN600", "quantity": 4500, "unit": "m", "rate": 1850, "amount": 8325000 },
+    { "item_no": "4.2", "description": "Stainless steel piping (process lines)", "quantity": 1200, "unit": "m", "rate": 3200, "amount": 3840000 },
+    { "item_no": "5.1", "description": "Electrical switchgear and MCC panels", "quantity": 1, "unit": "lot", "rate": 5600000, "amount": 5600000 },
+    { "item_no": "5.2", "description": "SCADA system and instrumentation", "quantity": 1, "unit": "lot", "rate": 4200000, "amount": 4200000 },
+    { "item_no": "6.1", "description": "Chlorine contact tank", "quantity": 1, "unit": "lot", "rate": 2800000, "amount": 2800000 },
+    { "item_no": "6.2", "description": "Sludge handling and dewatering system", "quantity": 1, "unit": "lot", "rate": 3500000, "amount": 3500000 }
+  ],
+  "boq_confidence": "high",
+  "pricing_result": {
+    "total_boq_amount": 68850000,
+    "contingency_10_percent": 6885000,
+    "escalation_8_percent": 5508000,
+    "professional_fees": 3442500,
+    "total_estimated_amount": 84685500,
+    "currency": "ZAR",
+    "pricing_mode": "detailed_estimate",
+    "markups_applied": true,
+    "item_count": 11
+  },
+  "pricing_status": "completed",
+  "pricing_unavailable_reason": null,
+  "extraction_method": "hybrid",
+  "pipeline_version": "v2.1.0",
+  "warnings": [
+    "Some pump specifications were ambiguous — estimated based on comparable installations",
+    "Labour for specialized welding inferred from project scope"
+  ],
+  "confidence_scores": {
+    "overall": 0.87,
+    "boq_extraction": 0.92,
+    "workforce": 0.76,
+    "sector": 0.95,
+    "pricing": 0.84
+  },
+  "executive_summary": "This tender covers the upgrade and expansion of the Nelspruit Water Treatment Plant, increasing capacity from 40ML/day to 65ML/day to serve growing demand in the Mpumalanga region.\n\nKey findings:\n• Sector: Water & Sanitation — Treatment Plant\n• Project Duration: 18 months\n• Total BOQ Value: ZAR 68,850,000\n• Estimated Total (incl. contingency & fees): ZAR 84,685,500\n• Total Workforce Required: 110 personnel across 6 categories\n• BOQ Confidence: High (92%)\n• Overall Processing Confidence: 87%\n\nThis is a well-structured water infrastructure project with clearly defined mechanical, electrical, and civil works components."
+}

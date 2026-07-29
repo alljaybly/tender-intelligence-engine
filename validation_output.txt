@@ -1,0 +1,44 @@
+============================================================
+Tender Completion Guide - Sample Generation
+============================================================
+
+Generating sample PDF for job: test-job-2026-001
+Document: ZNT-012345-2026-Construction-Upgrade.pdf
+Sector: Construction (Civil Engineering)
+BOQ items: 10
+Pricing: Available
+
+[OK] PDF generated successfully!
+   File: c:\Users\allan\OneDrive\Documents\tender-engine-api-fresh\sample_completion_guide.pdf
+   Size: 24,480 bytes (23.9 KB)
+   Format: Valid PDF
+
+--- Content Validation ---
+   [FAIL] Cover title - MISSING!
+   [FAIL] Status badge - MISSING!
+   [FAIL] Confidence section - MISSING!
+   [FAIL] Estimated completion section - MISSING!
+   [FAIL] Missing info section - MISSING!
+   [FAIL] Missing documents section - MISSING!
+   [FAIL] Workflow section - MISSING!
+   [FAIL] Checklist section - MISSING!
+   [FAIL] Mistakes section - MISSING!
+   [FAIL] Tips section - MISSING!
+   [FAIL] Readiness section - MISSING!
+   [OK] Footer branding
+   [OK] Footer subtitle
+   [FAIL] Version number - MISSING!
+   [FAIL] Page numbering - MISSING!
+   [FAIL] Job ID in header - MISSING!
+   [FAIL] Verification notice - MISSING!
+   [WARN] QR Code not found (may be drawn differently)
+   [WARN] Critical badge - not found (may be context-dependent)
+   [WARN] High badge - not found (may be context-dependent)
+   [WARN] Medium badge - not found (may be context-dependent)
+   [WARN] Complete badge - not found (may be context-dependent)
+   [WARN] Pending badge - not found (may be context-dependent)
+   [WARN] Missing badge - not found (may be context-dependent)
+
+============================================================
+[WARN] Some content checks failed - review output
+============================================================
