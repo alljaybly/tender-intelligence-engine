@@ -126,7 +126,10 @@ def decode_refresh_token(token: str) -> Optional[dict[str, Any]]:
 
 
 def session_expiry(remember_me: bool) -> datetime:
-    return utcnow() + timedelta(days=REMEMBER_ME_DAYS if remember_me else REFRESH_TOKEN_DAYS)
+    return (
+         utcnow() 
+         + timedelta(days=REMEMBER_ME_DAYS if remember_me else REFRESH_TOKEN_DAYS)
+    ).replace(tzinfo=None)     
 
 
 def is_account_locked(user: dict[str, Any]) -> bool:

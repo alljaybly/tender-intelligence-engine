@@ -146,7 +146,7 @@ async def register(
         cursor = await db.execute(
             """
             INSERT INTO users (email, hashed_password, full_name, company_name, role, email_verified, plan)
-            VALUES (?, ?, ?, ?, 'customer', 1, 'free')
+            VALUES (?, ?, ?, ?, 'customer',  TRUE, 'free')
             """,
             (payload.email.strip(), hashed, payload.full_name.strip(), payload.company_name.strip()),
         )
@@ -172,8 +172,8 @@ async def register(
                 hash_refresh_token(refresh_token),
                 user_agent_value,
                 ip_address,
-                1 if remember_me else 0,
-                session_expiry(remember_me).isoformat(),
+                remember_me,
+                session_expiry(remember_me),
             ),
         )
         await db.commit()
@@ -279,8 +279,8 @@ async def login(
                 hash_refresh_token(refresh_token),
                 user_agent_value,
                 ip_address,
-                1 if remember_me else 0,
-                session_expiry(remember_me).isoformat(),
+                remember_me,
+                session_expiry(remember_me).replace(tzinfo=None),
             ),
         )
         await db.execute(
@@ -316,7 +316,7 @@ async def login(
                 plan=user.get("plan", "free"),
                 is_active=bool(user.get("is_active", True)),
                 email_verified=bool(user.get("email_verified", True)),
-                created_at=user.get("created_at"),
+                created_at=user["created_at"].isoformat() if user.get("created_at") else "",
             ),
         )
     finally:
@@ -399,7 +399,7 @@ async def refresh_token(
                 plan=user.get("plan", "free"),
                 is_active=bool(user.get("is_active", True)),
                 email_verified=bool(user.get("email_verified", True)),
-                created_at=user.get("created_at"),
+                created_at=user["created_at"].isoformat() if user.get("created_at") else "",
             ),
         )
     finally:

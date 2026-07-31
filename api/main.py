@@ -1,18 +1,21 @@
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.exceptions import RequestValidationError
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+
 import logging
-from dotenv import load_dotenv
 import os
 
 from .routes import router as api_router
 from .utils import error_response
 from .services.database import init_db
 
-load_dotenv()
+
 
 app = FastAPI(
     title='Tender Engine API',
