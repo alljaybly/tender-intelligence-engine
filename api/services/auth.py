@@ -19,7 +19,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any, Optional
 
 import bcrypt
-from jose import JWTError, jwt
+from jose import JWTError, ExpiredSignatureError, jwt
 
 logger = logging.getLogger(__name__)
 
@@ -110,10 +110,14 @@ def decode_token(token: str, expected_type: str) -> Optional[dict[str, Any]]:
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM], issuer=JWT_ISSUER)
         if payload.get("type") != expected_type:
+            logger.warning("[AUTH] JWT type mismatch: expected=%s, got=%s", expected_type, payload.get("type"))
             return None
         return payload
+    except ExpiredSignatureError as exc:
+        logger.warning("[AUTH] JWT expired: %s", exc)
+        return None
     except JWTError as exc:
-        logger.warning("[AUTH] JWT decode failed: %s", exc)
+        logger.warning("[AUTH] JWT signature invalid: %s", exc)
         return None
 
 
