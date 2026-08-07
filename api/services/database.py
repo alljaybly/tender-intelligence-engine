@@ -14,6 +14,11 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
+print("=" * 70)
+print("DATABASE_URL EXISTS:", bool(DATABASE_URL))
+print("DATABASE_URL LENGTH:", len(DATABASE_URL))
+print("DATABASE_URL PREFIX:", DATABASE_URL[:20] if DATABASE_URL else "<EMPTY>")
+print("=" * 70)
 
 # ---------------------------------------------------------------------------
 # SQLite mode  (unchanged behaviour)
