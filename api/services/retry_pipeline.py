@@ -43,7 +43,7 @@ from .pipeline import (
     _store_result,
     PIPELINE_VERSION,
 )
-from ..services.database import get_db, close_db
+from ..services.database import get_db, close_db, utc_now_naive
 
 logger = logging.getLogger(__name__)
 
@@ -204,7 +204,7 @@ async def _save_retry_metadata(
 
     db = await get_db()
     try:
-        now = datetime.now(timezone.utc)
+        now = utc_now_naive()
         update_fields = {
             "status": status,
             "updated_at": now,
@@ -647,7 +647,7 @@ async def run_retry_pipeline(
         }
 
         # ── Step 9: Save to database ─────────────────────────────────
-        now = datetime.now(timezone.utc)
+        now = utc_now_naive()
         await _save_retry_metadata(
             job_id,
             retry_count=new_retry_count,

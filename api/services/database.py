@@ -9,9 +9,16 @@ import os
 import sqlite3
 import aiosqlite
 import logging
+from datetime import datetime, timezone
 from typing import Optional
 
 logger = logging.getLogger(__name__)
+
+
+def utc_now_naive() -> datetime:
+    """Return the current UTC time as a timezone-naive datetime for PostgreSQL TIMESTAMP columns."""
+    return datetime.now(timezone.utc).replace(tzinfo=None)
+
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
 print("=" * 70)
