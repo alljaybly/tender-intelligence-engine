@@ -138,7 +138,7 @@ async def record_audit_event(
     try:
         db = await get_db()
         try:
-            now = datetime.now(timezone.utc).isoformat()
+            now = datetime.now(timezone.utc)
             await db.execute(
                 """INSERT INTO audit_log
                    (tender_id, stage, status, timestamp, duration_ms,
