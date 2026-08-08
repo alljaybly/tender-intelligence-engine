@@ -70,40 +70,16 @@ async def _write_auth_audit(
 async def get_current_user(
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(security),
 ) -> dict:
-    auth_header_received = credentials is not None
-    jwt_decoded = False
-    user_id = None
-    session_id = None
-    session_found = False
-    revoked_at_is_null = False
-    reason = None
-
-    if not auth_header_received:
-        reason = "Authorization header missing"
-        logger.warning(
-            "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
-            auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
-        )
+    if credentials is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authentication required", headers={"WWW-Authenticate": "Bearer"})
 
     payload = decode_access_token(credentials.credentials)
-    jwt_decoded = payload is not None
-    if not jwt_decoded:
-        reason = "JWT expired or signature invalid"
-        logger.warning(
-            "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
-            auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
-        )
+    if payload is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid or expired token", headers={"WWW-Authenticate": "Bearer"})
 
     user_id = payload.get("sub")
     session_id = payload.get("sid")
     if user_id is None or session_id is None:
-        reason = "Invalid token payload"
-        logger.warning(
-            "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
-            auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
-        )
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token payload")
 
     db = await get_db()
@@ -111,19 +87,9 @@ async def get_current_user(
         cursor = await db.execute("SELECT * FROM users WHERE id = ?", (int(user_id),))
         row = await cursor.fetchone()
         if row is None:
-            reason = "User not found"
-            logger.warning(
-                "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
-                auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
-            )
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
         user = dict(row)
         if not user.get("is_active"):
-            reason = "Account is disabled"
-            logger.warning(
-                "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
-                auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
-            )
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account is disabled")
 
         session_cursor = await db.execute(
@@ -132,25 +98,7 @@ async def get_current_user(
         )
         session_row = await session_cursor.fetchone()
         if session_row is None:
-            revoke_check = await db.execute(
-                "SELECT revoked_at FROM auth_sessions WHERE session_id = ? AND user_id = ?",
-                (session_id, int(user_id)),
-            )
-            revoke_row = await revoke_check.fetchone()
-            if revoke_row:
-                revoked_at = revoke_row["revoked_at"] if hasattr(revoke_row, "keys") else revoke_row[0]
-                revoked_at_is_null = revoked_at is None
-                reason = "Session revoked" if revoked_at is not None else "Session not found"
-            else:
-                reason = "Session not found"
-            logger.warning(
-                "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
-                auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
-            )
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Session not found or expired")
-        else:
-            session_found = True
-            revoked_at_is_null = True
 
         await db.execute(
             "UPDATE auth_sessions SET last_active_at = CURRENT_TIMESTAMP WHERE session_id = ?",
@@ -280,7 +228,6 @@ async def login(
         cursor = await db.execute("SELECT * FROM users WHERE lower(email) = lower(?)", (payload.email.strip(),))
         row = await cursor.fetchone()
         if row is None:
-            logger.warning("[AUTH] 401 reason=Invalid email or password, email=%s", payload.email.strip())
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password")
         user = dict(row)
 
@@ -295,7 +242,7 @@ async def login(
             if failed_attempts >= MAX_FAILED_LOGIN_ATTEMPTS:
                 await db.execute(
                     "UPDATE users SET failed_login_attempts = ?, locked_until = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
-                    (failed_attempts, next_lock_expiry(), user["id"]),
+                    (failed_attempts, next_lock_expiry().isoformat(), user["id"]),
                 )
             else:
                 await db.execute(
@@ -312,7 +259,6 @@ async def login(
                 user_agent=user_agent_value,
                 details={"failed_login_attempts": failed_attempts},
             )
-            logger.warning("[AUTH] 401 reason=Invalid email or password, email=%s, failed_attempts=%s", payload.email.strip(), failed_attempts)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password")
 
         session_id = generate_session_id()
@@ -385,7 +331,6 @@ async def refresh_token(
 ):
     token_payload = decode_refresh_token(payload.refresh_token)
     if token_payload is None:
-        logger.warning("[AUTH] 401 reason=Refresh token expired or signature invalid")
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token is invalid or expired")
 
     user_id = int(token_payload["sub"])
@@ -400,12 +345,10 @@ async def refresh_token(
         )
         session_row = await session_cursor.fetchone()
         if session_row is None:
-            logger.warning("[AUTH] 401 reason=Session not active, session_id=%s, user_id=%s", session_id, user_id)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Session is no longer active")
         session = dict(session_row)
 
         if session["refresh_token_hash"] != hash_refresh_token(payload.refresh_token):
-            logger.warning("[AUTH] 401 reason=Refresh token rotation check failed, session_id=%s, user_id=%s", session_id, user_id)
             await db.execute("UPDATE auth_sessions SET revoked_at = CURRENT_TIMESTAMP WHERE session_id = ?", (session_id,))
             await db.commit()
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Refresh token rotation check failed")
@@ -413,7 +356,6 @@ async def refresh_token(
         user_cursor = await db.execute("SELECT * FROM users WHERE id = ?", (user_id,))
         user_row = await user_cursor.fetchone()
         if user_row is None:
-            logger.warning("[AUTH] 401 reason=User not found, user_id=%s", user_id)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
         user = dict(user_row)
         if not user.get("is_active"):
@@ -437,7 +379,7 @@ async def refresh_token(
             SET refresh_token_hash = ?, user_agent = ?, ip_address = ?, expires_at = ?, last_active_at = CURRENT_TIMESTAMP
             WHERE session_id = ?
             """,
-            (hash_refresh_token(new_refresh_token), user_agent_value, ip_address, session_expiry(remember_me), session_id),
+            (hash_refresh_token(new_refresh_token), user_agent_value, ip_address, session_expiry(remember_me).isoformat(), session_id),
         )
         await db.commit()
 

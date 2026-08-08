@@ -9,23 +9,11 @@ import os
 import sqlite3
 import aiosqlite
 import logging
-from datetime import datetime, timezone
 from typing import Optional
 
 logger = logging.getLogger(__name__)
 
-
-def utc_now_naive() -> datetime:
-    """Return the current UTC time as a timezone-naive datetime for PostgreSQL TIMESTAMP columns."""
-    return datetime.now(timezone.utc).replace(tzinfo=None)
-
-
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
-print("=" * 70)
-print("DATABASE_URL EXISTS:", bool(DATABASE_URL))
-print("DATABASE_URL LENGTH:", len(DATABASE_URL))
-print("DATABASE_URL PREFIX:", DATABASE_URL[:20] if DATABASE_URL else "<EMPTY>")
-print("=" * 70)
 
 # ---------------------------------------------------------------------------
 # SQLite mode  (unchanged behaviour)
@@ -692,56 +680,30 @@ else:
             upload_size_bytes       INTEGER,
             page_count              INTEGER,
             ocr_used                INTEGER,
-            ocr_page_count          INTEGER,
-            document_language       TEXT,
-            detected_jurisdiction   TEXT,
-            tender_type             TEXT,
-            procurement_method      TEXT,
-            detected_currency       TEXT,
-            currencies_detected_json TEXT,
-            employer_detected       INTEGER,
-            tender_number_detected  INTEGER,
-            closing_date_detected   INTEGER,
-            boq_detected            INTEGER,
-            boq_item_count          INTEGER,
-            work_categories_detected_json TEXT,
-            pricing_executed        INTEGER,
-            readiness_score         REAL,
-            submission_package_generated INTEGER,
-            completion_guide_generated INTEGER,
-            processing_status       TEXT,
+            extraction_method       TEXT,
+            sector                  TEXT,
+            sector_confidence       TEXT,
+            duration_months         INTEGER,
+            total_value             REAL,
+            total_value_confidence  TEXT,
+            boq_line_count          INTEGER,
+            line_items_count        INTEGER,
+            pricing_mode            TEXT,
+            has_pricing             INTEGER,
+            has_boq                 INTEGER,
+            has_dates               INTEGER,
+            has_locations           INTEGER,
+            has_workforce           INTEGER,
+            has_schedule            INTEGER,
+            risk_score              REAL,
+            risk_level              TEXT,
             warnings_count          INTEGER,
             errors_count            INTEGER,
-            upload_time_ms          INTEGER,
-            validation_time_ms      INTEGER,
-            ocr_duration_ms         INTEGER,
-            text_extraction_duration_ms INTEGER,
-            entity_extraction_duration_ms INTEGER,
-            boq_duration_ms         INTEGER,
-            pricing_duration_ms     INTEGER,
-            report_generation_duration_ms INTEGER,
-            zip_package_generation_duration_ms INTEGER,
-            total_processing_time_ms INTEGER,
-            average_page_processing_time_ms REAL,
-            is_scanned              INTEGER,
-            is_digital              INTEGER,
-            contains_boq            INTEGER,
-            contains_drawings       INTEGER,
-            contains_tables         INTEGER,
-            contains_appendices     INTEGER,
-            contains_pricing_schedules INTEGER,
-            contains_forms          INTEGER,
-            contains_signatures     INTEGER,
-            contains_evaluation_criteria INTEGER,
-            contains_mandatory_documentation INTEGER,
-            extraction_quality_json TEXT,
-            document_characteristics_json TEXT,
-            raw_metrics_json        TEXT,
-            FOREIGN KEY (job_id) REFERENCES tenders(job_id)
+            ocr_confidence          REAL,
+            overall_confidence      REAL,
+            pipeline_version        TEXT
         );
         CREATE INDEX IF NOT EXISTS idx_platform_analytics_job_id ON platform_analytics(job_id);
-        CREATE INDEX IF NOT EXISTS idx_platform_analytics_completed_at ON platform_analytics(completed_at);
-        CREATE INDEX IF NOT EXISTS idx_platform_analytics_status ON platform_analytics(processing_status);
     """
 
     def init_db():

@@ -27,7 +27,7 @@ from ..schemas.process import ProcessingResult, ExtractedBOQItem, ProcessingEvid
 from .boq_sanitizer import sanitize_boq_items, classify_boq_items, get_work_category_filter
 from .workforce_inference import estimate_workforce, get_workforce_explanation
 from .ocr_extractor import extract_via_ocr, should_use_ocr, check_ocr_dependencies
-from ..services.database import get_db, close_db, utc_now_naive
+from ..services.database import get_db, close_db
 from .currency_engine import CurrencyEngine, detect_currency
 from .numeric_classifier import classify_all_numeric_values
 from ..services.audit_log_service import (
@@ -1061,7 +1061,7 @@ async def _create_job(job_id: str, user_id: str, filename: str, original_name: s
     """Insert a new processing_jobs row."""
     db = await get_db()
     try:
-        now = utc_now_naive()
+        now = datetime.now(timezone.utc).isoformat()
         await db.execute(
             """INSERT INTO processing_jobs
                (job_id, user_id, filename, original_name, status, progress, created_at, updated_at)
@@ -1095,7 +1095,7 @@ async def _update_job(job_id: str, **kwargs) -> None:
     try:
         await db.execute(
             f"UPDATE processing_jobs SET {', '.join(sets)}, updated_at = ? WHERE job_id = ?",
-            (*values, utc_now_naive(), job_id),
+            (*values, datetime.now(timezone.utc).isoformat(), job_id),
         )
         await db.commit()
     finally:
@@ -1145,7 +1145,7 @@ async def _update_tender(job_id: str, **kwargs) -> None:
     try:
         await db.execute(
             f"UPDATE tenders SET {', '.join(sets)}, updated_at = ? WHERE job_id = ?",
-            (*values, utc_now_naive(), job_id),
+            (*values, datetime.now(timezone.utc).isoformat(), job_id),
         )
         await db.commit()
     finally:
@@ -1819,10 +1819,10 @@ async def run_pipeline(job_id: str, file_path: str, original_name: str,
         result_dict = result.model_dump() if hasattr(result, "model_dump") else result.dict()
         result_json = json.dumps(result_dict, default=str)
 
-        now = utc_now_naive()
+        now_iso = datetime.now(timezone.utc).isoformat()
         await _update_job(job_id, status=final_status, progress="done",
                           result_json=result_json)
-        await _update_tender(job_id, status=final_status, completed_at=now)
+        await _update_tender(job_id, status=final_status, completed_at=now_iso)
         await _store_result(job_id, result, pricing_mode)
         await store_platform_analytics(job_id, result_dict)
         await _record_stage(job_id, "finalisation", True,

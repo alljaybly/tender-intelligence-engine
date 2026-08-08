@@ -19,7 +19,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any, Optional
 
 import bcrypt
-from jose import JWTError, ExpiredSignatureError, jwt
+from jose import JWTError, jwt
 
 logger = logging.getLogger(__name__)
 
@@ -110,14 +110,10 @@ def decode_token(token: str, expected_type: str) -> Optional[dict[str, Any]]:
     try:
         payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM], issuer=JWT_ISSUER)
         if payload.get("type") != expected_type:
-            logger.warning("[AUTH] JWT type mismatch: expected=%s, got=%s", expected_type, payload.get("type"))
             return None
         return payload
-    except ExpiredSignatureError as exc:
-        logger.warning("[AUTH] JWT expired: %s", exc)
-        return None
     except JWTError as exc:
-        logger.warning("[AUTH] JWT signature invalid: %s", exc)
+        logger.warning("[AUTH] JWT decode failed: %s", exc)
         return None
 
 
@@ -141,17 +137,13 @@ def is_account_locked(user: dict[str, Any]) -> bool:
     if not locked_until:
         return False
     try:
-        if isinstance(locked_until, str):
-            locked_until = datetime.fromisoformat(locked_until.replace("Z", "+00:00"))
-        if locked_until.tzinfo is None:
-            locked_until = locked_until.replace(tzinfo=timezone.utc)
-        return locked_until > utcnow()
-    except (ValueError, TypeError):
+        return datetime.fromisoformat(str(locked_until).replace("Z", "+00:00")) > utcnow()
+    except ValueError:
         return False
 
 
 def next_lock_expiry() -> datetime:
-    return (utcnow() + timedelta(minutes=ACCOUNT_LOCK_MINUTES)).replace(tzinfo=None)
+    return utcnow() + timedelta(minutes=ACCOUNT_LOCK_MINUTES)
 
 
 def is_owner(user: Optional[dict[str, Any]]) -> bool:

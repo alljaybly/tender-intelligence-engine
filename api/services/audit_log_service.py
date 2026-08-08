@@ -24,7 +24,7 @@ import time
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
-from ..services.database import get_db, close_db, utc_now_naive
+from ..services.database import get_db, close_db
 
 logger = logging.getLogger(__name__)
 
@@ -138,7 +138,7 @@ async def record_audit_event(
     try:
         db = await get_db()
         try:
-            now = utc_now_naive()
+            now = datetime.now(timezone.utc).isoformat()
             await db.execute(
                 """INSERT INTO audit_log
                    (tender_id, stage, status, timestamp, duration_ms,
