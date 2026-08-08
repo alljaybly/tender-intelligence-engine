@@ -328,7 +328,7 @@ async def build_platform_analytics_record(job_id: str, result_data: Dict[str, An
 
     record = {
         "job_id": job_id,
-        "completed_at": datetime.now(timezone.utc).isoformat(),
+        "completed_at": datetime.now(timezone.utc).replace(tzinfo=None),
         "processing_duration_ms": total_processing_time_ms,
         "upload_size_bytes": metadata.get("size_bytes"),
         "page_count": page_count,
@@ -406,9 +406,9 @@ async def _fetch_analytics_rows(days: Optional[int] = None) -> List[Dict[str, An
         sql = "SELECT * FROM platform_analytics"
         params: List[Any] = []
         if days is not None:
-            cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+            cutoff = datetime.now(timezone.utc).replace(tzinfo=None) - timedelta(days=days)
             sql += " WHERE completed_at IS NOT NULL AND completed_at >= ?"
-            params.append(cutoff.isoformat())
+            params.append(cutoff)
         sql += " ORDER BY completed_at DESC, id DESC"
         cursor = await db.execute(sql, params)
         rows = await cursor.fetchall()

@@ -43,7 +43,7 @@ from .pipeline import (
     _store_result,
     PIPELINE_VERSION,
 )
-from ..services.database import get_db, close_db
+from ..services.database import get_db, close_db, utc_now_naive
 
 logger = logging.getLogger(__name__)
 
@@ -204,7 +204,7 @@ async def _save_retry_metadata(
 
     db = await get_db()
     try:
-        now = datetime.now(timezone.utc).isoformat()
+        now = utc_now_naive()
         update_fields = {
             "status": status,
             "updated_at": now,
@@ -647,7 +647,7 @@ async def run_retry_pipeline(
         }
 
         # ── Step 9: Save to database ─────────────────────────────────
-        now_iso = datetime.now(timezone.utc).isoformat()
+        now = utc_now_naive()
         await _save_retry_metadata(
             job_id,
             retry_count=new_retry_count,
@@ -656,7 +656,7 @@ async def run_retry_pipeline(
             result_json=result_json,
             error_message=None if final_status != "failed" else f"Retry #{new_retry_count} failed",
         )
-        await _update_tender(job_id, status=final_status, completed_at=now_iso)
+        await _update_tender(job_id, status=final_status, completed_at=now)
 
         # Update or insert tender_results — we overwrite with new data
         try:
