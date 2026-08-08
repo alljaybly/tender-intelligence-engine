@@ -70,19 +70,40 @@ async def _write_auth_audit(
 async def get_current_user(
     credentials: Optional[HTTPAuthorizationCredentials] = Depends(security),
 ) -> dict:
-    if credentials is None:
-        logger.warning("[AUTH] 401 reason=Authorization header missing")
+    auth_header_received = credentials is not None
+    jwt_decoded = False
+    user_id = None
+    session_id = None
+    session_found = False
+    revoked_at_is_null = False
+    reason = None
+
+    if not auth_header_received:
+        reason = "Authorization header missing"
+        logger.warning(
+            "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
+            auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
+        )
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Authentication required", headers={"WWW-Authenticate": "Bearer"})
 
     payload = decode_access_token(credentials.credentials)
-    if payload is None:
-        logger.warning("[AUTH] 401 reason=JWT expired or signature invalid")
+    jwt_decoded = payload is not None
+    if not jwt_decoded:
+        reason = "JWT expired or signature invalid"
+        logger.warning(
+            "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
+            auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
+        )
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid or expired token", headers={"WWW-Authenticate": "Bearer"})
 
     user_id = payload.get("sub")
     session_id = payload.get("sid")
     if user_id is None or session_id is None:
-        logger.warning("[AUTH] 401 reason=Invalid token payload, user_id=%s, session_id=%s", user_id, session_id)
+        reason = "Invalid token payload"
+        logger.warning(
+            "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
+            auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
+        )
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token payload")
 
     db = await get_db()
@@ -90,10 +111,19 @@ async def get_current_user(
         cursor = await db.execute("SELECT * FROM users WHERE id = ?", (int(user_id),))
         row = await cursor.fetchone()
         if row is None:
-            logger.warning("[AUTH] 401 reason=User not found, user_id=%s", user_id)
+            reason = "User not found"
+            logger.warning(
+                "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
+                auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
+            )
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="User not found")
         user = dict(row)
         if not user.get("is_active"):
+            reason = "Account is disabled"
+            logger.warning(
+                "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
+                auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
+            )
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Account is disabled")
 
         session_cursor = await db.execute(
@@ -109,13 +139,18 @@ async def get_current_user(
             revoke_row = await revoke_check.fetchone()
             if revoke_row:
                 revoked_at = revoke_row["revoked_at"] if hasattr(revoke_row, "keys") else revoke_row[0]
-                if revoked_at is not None:
-                    logger.warning("[AUTH] 401 reason=Session revoked, session_id=%s, user_id=%s", session_id, user_id)
-                else:
-                    logger.warning("[AUTH] 401 reason=Session not found, session_id=%s, user_id=%s", session_id, user_id)
+                revoked_at_is_null = revoked_at is None
+                reason = "Session revoked" if revoked_at is not None else "Session not found"
             else:
-                logger.warning("[AUTH] 401 reason=Session not found, session_id=%s, user_id=%s", session_id, user_id)
+                reason = "Session not found"
+            logger.warning(
+                "[AUTH DEBUG] auth_header_received=%s jwt_decoded=%s user_id=%s session_id=%s session_found=%s revoked_at_is_null=%s reason=%s",
+                auth_header_received, jwt_decoded, user_id, session_id, session_found, revoked_at_is_null, reason,
+            )
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Session not found or expired")
+        else:
+            session_found = True
+            revoked_at_is_null = True
 
         await db.execute(
             "UPDATE auth_sessions SET last_active_at = CURRENT_TIMESTAMP WHERE session_id = ?",
