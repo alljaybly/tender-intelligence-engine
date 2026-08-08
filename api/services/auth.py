@@ -141,13 +141,17 @@ def is_account_locked(user: dict[str, Any]) -> bool:
     if not locked_until:
         return False
     try:
-        return datetime.fromisoformat(str(locked_until).replace("Z", "+00:00")) > utcnow()
-    except ValueError:
+        if isinstance(locked_until, str):
+            locked_until = datetime.fromisoformat(locked_until.replace("Z", "+00:00"))
+        if locked_until.tzinfo is None:
+            locked_until = locked_until.replace(tzinfo=timezone.utc)
+        return locked_until > utcnow()
+    except (ValueError, TypeError):
         return False
 
 
 def next_lock_expiry() -> datetime:
-    return utcnow() + timedelta(minutes=ACCOUNT_LOCK_MINUTES)
+    return (utcnow() + timedelta(minutes=ACCOUNT_LOCK_MINUTES)).replace(tzinfo=None)
 
 
 def is_owner(user: Optional[dict[str, Any]]) -> bool:

@@ -295,7 +295,7 @@ async def login(
             if failed_attempts >= MAX_FAILED_LOGIN_ATTEMPTS:
                 await db.execute(
                     "UPDATE users SET failed_login_attempts = ?, locked_until = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
-                    (failed_attempts, next_lock_expiry().isoformat(), user["id"]),
+                    (failed_attempts, next_lock_expiry(), user["id"]),
                 )
             else:
                 await db.execute(
@@ -437,7 +437,7 @@ async def refresh_token(
             SET refresh_token_hash = ?, user_agent = ?, ip_address = ?, expires_at = ?, last_active_at = CURRENT_TIMESTAMP
             WHERE session_id = ?
             """,
-            (hash_refresh_token(new_refresh_token), user_agent_value, ip_address, session_expiry(remember_me).isoformat(), session_id),
+            (hash_refresh_token(new_refresh_token), user_agent_value, ip_address, session_expiry(remember_me), session_id),
         )
         await db.commit()
 
