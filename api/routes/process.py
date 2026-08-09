@@ -15,6 +15,7 @@ import logging
 import os
 import re
 import uuid
+from datetime import date, datetime
 from pathlib import Path
 from typing import Optional
 
@@ -49,6 +50,28 @@ from ..services.submission_package_service import (
 from ..services.tender_readiness_service import build_readiness_report, generate_readiness_pdf
 
 logger = logging.getLogger(__name__)
+
+
+def _timestamp_to_iso(value) -> Optional[str]:
+    """Normalise a database timestamp value to an ISO-8601 string.
+
+    The SQLite backend returns TIMESTAMP columns as strings, while the
+    PostgreSQL/asyncpg backend returns them as ``datetime.datetime``
+    objects. The API schemas expose these fields as ISO strings, so the
+    value is normalised here at the response boundary.
+
+    This only affects values read *out* of the database. Parameters passed
+    *into* the database remain timezone-naive ``datetime`` objects, so the
+    PostgreSQL TIMESTAMP compatibility behaviour is unchanged.
+    """
+    if value is None:
+        return None
+    if isinstance(value, datetime):
+        return value.isoformat()
+    if isinstance(value, date):
+        return value.isoformat()
+    return str(value)
+
 
 # Main router (legacy / process-tender stays here)
 router = APIRouter()
@@ -495,8 +518,8 @@ async def process_status(
             job_id=job["job_id"],
             status=job["status"],
             progress=job["progress"],
-            created_at=job["created_at"],
-            updated_at=job["updated_at"],
+            created_at=_timestamp_to_iso(job["created_at"]),
+            updated_at=_timestamp_to_iso(job["updated_at"]),
             error_message=job["error_message"],
         )
     finally:
@@ -1484,8 +1507,8 @@ async def process_history(
                     job_id=job.get("job_id", ""),
                     filename=filename,
                     status=job.get("status", "unknown"),
-                    created_at=job.get("created_at"),
-                    updated_at=job.get("updated_at"),
+                    created_at=_timestamp_to_iso(job.get("created_at")),
+                    updated_at=_timestamp_to_iso(job.get("updated_at")),
                     sector=sector,
                     confidence=job.get("sector_confidence"),
                     warnings_count=warnings_count,
