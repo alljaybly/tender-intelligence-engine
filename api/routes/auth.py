@@ -43,6 +43,15 @@ def _request_context(request: Request, user_agent: Optional[str]) -> tuple[str, 
     return ip, user_agent or request.headers.get("user-agent", "")
 
 
+def _serialize_optional_datetime(value: object) -> Optional[str]:
+    if value is None:
+        return None
+    isoformat = getattr(value, "isoformat", None)
+    if callable(isoformat):
+        return isoformat()
+    return str(value)
+
+
 async def _write_auth_audit(
     *,
     action: str,
@@ -316,7 +325,7 @@ async def login(
                 plan=user.get("plan", "free"),
                 is_active=bool(user.get("is_active", True)),
                 email_verified=bool(user.get("email_verified", True)),
-                created_at=user["created_at"].isoformat() if user.get("created_at") else "",
+                created_at=_serialize_optional_datetime(user.get("created_at")),
             ),
         )
     finally:
@@ -399,7 +408,7 @@ async def refresh_token(
                 plan=user.get("plan", "free"),
                 is_active=bool(user.get("is_active", True)),
                 email_verified=bool(user.get("email_verified", True)),
-                created_at=user["created_at"].isoformat() if user.get("created_at") else "",
+                created_at=_serialize_optional_datetime(user.get("created_at")),
             ),
         )
     finally:
