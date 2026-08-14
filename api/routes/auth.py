@@ -448,6 +448,6 @@ async def get_me(current_user: dict = Depends(get_current_user)):
         role=current_user.get("role", "customer"),
         plan=current_user.get("plan", "free"),
         is_active=bool(current_user.get("is_active", True)),
-        email_verified=bool(current_user.get("email_verified", True)),
-        created_at=current_user.get("created_at"),
+          email_verified=bool(current_user.get("email_verified", True)),
+        created_at=_serialize_optional_datetime(current_user.get("created_at")),
     )
