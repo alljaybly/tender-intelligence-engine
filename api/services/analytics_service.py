@@ -152,7 +152,7 @@ async def _fetch_processing_events(job_id: str) -> List[Dict[str, Any]]:
             (job_id,),
         )
         rows = await cursor.fetchall()
-        return [dict(row) for row in rows]
+        return [{**dict(row), "created_at": row["created_at"].isoformat() if row["created_at"] else None} for row in rows]
     finally:
         await close_db(db)
 
