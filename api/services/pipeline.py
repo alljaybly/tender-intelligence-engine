@@ -1170,7 +1170,7 @@ async def _store_result(tender_id: str, result: ProcessingResult,
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 tender_id,
-                result.full_text,
+                result.full_text.replace("\x00", "") if result.full_text else None,
                 result.detected_sector,
                 result.boq_confidence if result.detected_sector else None,
                 result.detected_duration_months,
